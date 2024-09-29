@@ -1,0 +1,123 @@
+"""
+Base64 encoder and decoder implementation example.
+"""
+(B64)
+
+(Bit: 'T or 'T(2))
+
+"""
+The pad character - this is simply the '=' sign in binary.
+"""
+(Pad: ('A(3) then 'B(3) then 'C(3) then 'D(3) then 'E(3) then 'F(3) then 'G(3) then 'H(3)) then ('I then 'J then 'K(2) then 'L(2) then 'M(2) then 'N(2) then 'O then 'P))
+
+"""
+The base64 alphabet - each letter is mapped to an index for access to it's 
+associated 6-bit group.
+"""
+(MappedAlphabetLetter:
+((8)<(intmin)(0) then "A") or 
+((8)<(intmin)(1) then "B") or 
+((8)<(intmin)(2) then "C") or 
+((8)<(intmin)(3) then "D") or 
+((8)<(intmin)(4) then "E") or 
+((8)<(intmin)(5) then "F") or 
+((8)<(intmin)(6) then "G") or 
+((8)<(intmin)(7) then "H") or 
+((8)<(intmin)(8) then "I") or 
+((8)<(intmin)(9) then "J") or 
+((8)<(intmin)(10) then "K") or 
+((8)<(intmin)(11) then "L") or 
+((8)<(intmin)(12) then "M") or 
+((8)<(intmin)(13) then "N") or 
+((8)<(intmin)(14) then "O") or 
+((8)<(intmin)(15) then "P") or 
+((8)<(intmin)(16) then "Q") or 
+((8)<(intmin)(17) then "R") or 
+((8)<(intmin)(18) then "S") or 
+((8)<(intmin)(19) then "T") or 
+((8)<(intmin)(20) then "U") or 
+((8)<(intmin)(21) then "V") or 
+((8)<(intmin)(22) then "W") or 
+((8)<(intmin)(23) then "X") or 
+((8)<(intmin)(24) then "Y") or 
+((8)<(intmin)(25) then "Z") or 
+((8)<(intmin)(26) then "a") or 
+((8)<(intmin)(27) then "b") or 
+((8)<(intmin)(28) then "c") or 
+((8)<(intmin)(29) then "d") or 
+((8)<(intmin)(30) then "e") or 
+((8)<(intmin)(31) then "f") or 
+((8)<(intmin)(32) then "g") or 
+((8)<(intmin)(33) then "h") or 
+((8)<(intmin)(34) then "i") or 
+((8)<(intmin)(35) then "j") or 
+((8)<(intmin)(36) then "k") or 
+((8)<(intmin)(37) then "l") or 
+((8)<(intmin)(38) then "m") or 
+((8)<(intmin)(39) then "n") or 
+((8)<(intmin)(40) then "o") or 
+((8)<(intmin)(41) then "p") or 
+((8)<(intmin)(42) then "q") or 
+((8)<(intmin)(43) then "r") or 
+((8)<(intmin)(44) then "s") or 
+((8)<(intmin)(45) then "t") or 
+((8)<(intmin)(46) then "u") or 
+((8)<(intmin)(47) then "v") or 
+((8)<(intmin)(48) then "w") or 
+((8)<(intmin)(49) then "x") or 
+((8)<(intmin)(50) then "y") or 
+((8)<(intmin)(51) then "z") or 
+((8)<(intmin)(52) then "0") or 
+((8)<(intmin)(53) then "1") or 
+((8)<(intmin)(54) then "2") or 
+((8)<(intmin)(55) then "3") or 
+((8)<(intmin)(56) then "4") or 
+((8)<(intmin)(57) then "5") or 
+((8)<(intmin)(58) then "6") or 
+((8)<(intmin)(59) then "7") or 
+((8)<(intmin)(60) then "8") or 
+((8)<(intmin)(61) then "9") or 
+((8)<(intmin)(62) then "+") or 
+((8)<(intmin)(63) then "/"))
+
+"""
+Intended to remove the index from a base64 word, leaving only the letters.
+"""
++[(('T1:Bit then 'T2:Bit then 'A:Bit then 'B:Bit then 'C:Bit then 'D:Bit then 'E:Bit then 'F:Bit) then 'A1) then 
+  (('T3:Bit then 'T4:Bit then 'G:Bit then 'H:Bit then 'I:Bit then 'J:Bit then 'K:Bit then 'L:Bit) then 'A2) then 
+  (('T5:Bit then 'T6:Bit then 'M:Bit then 'N:Bit then 'O:Bit then 'P:Bit then 'Q:Bit then 'R:Bit) then 'A3) then 
+  (('T7:Bit then 'T8:Bit then 'S:Bit then 'T:Bit then 'U:Bit then 'V:Bit then 'W:Bit then 'X:Bit) then 'A4)]
+(Strip: 'A1 then 'A2 then 'A3 then 'A4)
+
+"""
+Intended to remove the index from a single base64 alphabet letter, leaving only the letter.
+"""
++[('T1:Bit then 'T2:Bit then 'A:Bit then 'B:Bit then 'C:Bit then 'D:Bit then 'E:Bit then 'F:Bit) then 'A1]
+(Strip: 'A1)
+
+"""
+A complete or partial plaintext input to encoder.
+"""
+(PlaintextWord: Bit(8) or (Bit(8) then Bit(8)) or (Bit(8) then Bit(8) then Bit(8)))
+
+"""
+A base64 alphabet letter without the index.
+"""
+(AlphabetLetter: Strip[MappedAlphabetLetter])
+
+"""
+An encoded base64 word.
+"""
+(EncodedWord: AlphabetLetter then AlphabetLetter then (('W if AlphabetLetter) or ('T if Pad)) then ((AlphabetLetter if 'W) or (Pad if 'T)))
+
+"""
+Base64 encoder
+"""
+['P: PlaintextWord](Encode: EncodedWord)
+
+"""
+Base64 decoder
+"""
+['E: EncodedWord](Decode: PlaintextWord)
+
+

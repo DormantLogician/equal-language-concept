@@ -1,1 +1,5 @@
+built/**
+test_package/build/**
+CMakeUserPresets.json
+CMakeCache.txt
 .vscode

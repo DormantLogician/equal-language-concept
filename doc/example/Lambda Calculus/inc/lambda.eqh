@@ -1,0 +1,70 @@
+"""
+Lambda Calculus implementation example.
+"""
+(LC)
+
+"""
+Category representing a single lambda expression, which is a map from an
+input to an output.
+"""
+(Lambda: 'T then 'N['T])
+
+"""
+Indicates the end of a lambda expression.
+'T - Input substituted into the end.
+'U - First pad placeholder.
+'V - Second pad placeholder.
+"""
+(Last: 'T then 'U then 'V)
+
+"""
+Beta reduction for a single lambda.
+('T then 'N['T]) - Lambda expression to reduce.
+'I - Input to apply to lambda expression.
+"""
+[('T then 'N['T]) then 'I](Beta: 'N['I])
+
+"""
+Recursivly performs beta reduction on a lambda expression.
+'T - Lambda input.
+'N - Lambda output.
+"""
+['T then 'N: Lambda](Expand: ['T then 'N]['U then 'V](Beta['V then 'U] then next[Beta['V then 'U]])+'Last)
+
+"""
+Retrieves the output of a lambda expression.
+"""
+[(Lambda then next)+('T then ('T then 'U then 'V))](Extract: 'T)
+
+"""
+Performs expansion of a lambda expression, then extraction of the final output.
+'N - Lambda to expand.
+"""
+['N: Lambda](Evaluate: Extract[Expand['N]])
+
+"""
+Represents the 'true' condition.
+"""
+(True: 'T then ('U then  ('T then 'V then 'W)))
+
+"""
+Represents the 'false' condition.
+"""
+(False: 'T then ('U then  ('U then 'V then 'W)))
+
+"""
+Selects an alternative based on a condition lambda.
+'F - True alternative.
+'S - False alternative.
+'C - Condition lambda.
+"""
+['F then 'S then 'C: True or False](Ternary: Beta[Beta['C then 'F] then 'S])
+
+"""
+Yields a value if condition is true - otherwise yields 'false'.
+'C - Condition lambda.
+'X - Value to yield if true.
+"""
+['C: Lambda then 'X](And: Beta[Beta[Beta[Ternary['F then 'S then 'C2: True or False] then 'X] then False] then 'C])
+
+
