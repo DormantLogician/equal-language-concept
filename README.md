@@ -11,8 +11,7 @@ its primary purpose is the design of safe and correct programs.
 ### 1.3 Intersection as computation method
 A basic program in written in language is expressed:
 
-    'A  and 'B     Intersection of 'A and 'B.
+    'A and 'B     Intersection of 'A and 'B.
 
-In this example, intersection of 'A and 'B categories removes differences between them, producing a third category type representing only structures they have in common. Intersections enable reduction of a search space in order to find specific structures (output of intersection) within that space. This works even if both categories are recursive, producing either an infinitely-sized or finitely-sized category depending
-on which structures are the same between both categories.
+In this example, intersection of 'A and 'B categories removes differences between them, producing a third category type representing only structures they have in common. Intersections enable reduction of a search space in order to find specific structures (output of intersection) within that space. This works even if both categories are recursive, producing either an infinitely-sized or finitely-sized category depending on which structures are the same between both categories.
 
