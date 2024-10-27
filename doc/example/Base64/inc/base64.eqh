@@ -3,16 +3,16 @@ Base64 encoder and decoder implementation example.
 """
 (B64)
 
-(Bit: 'T or 'T(2))
+(Bit: 'T(2) or 'T(3))
 
 """
-The pad character - this is simply the '=' sign in binary.
+The pad character - index is unused by both encoder and decoder, since it is not
+part of the base64 alphabet.
 """
-(Pad: ('A(3) then 'B(3) then 'C(3) then 'D(3) then 'E(3) then 'F(3) then 'G(3) then 'H(3)) then ('I then 'J then 'K(2) then 'L(2) then 'M(2) then 'N(2) then 'O then 'P))
+(Pad: ('A(3) then 'B(3) then 'C(3) then 'D(3) then 'E(3) then 'F(3) then 'G(3) then 'H(3)) then "=")
 
 """
-The base64 alphabet - each letter is mapped to an index for access to it's 
-associated 6-bit group.
+The base64 alphabet - each letter is mapped to an index from 0-63.
 """
 (MappedAlphabetLetter:
 ((8)<(intmin)(0) then "A") or 
@@ -108,16 +108,16 @@ A base64 alphabet letter without the index.
 """
 An encoded base64 word.
 """
-(EncodedWord: AlphabetLetter then AlphabetLetter then (('W if AlphabetLetter) or ('T if Pad)) then ((AlphabetLetter if 'W) or (Pad if 'T)))
+(EncodedWord: AlphabetLetter then AlphabetLetter then (('W if AlphabetLetter) or ('T if Pad)) then ((AlphabetLetter if 'W) or (Pad if ('T or 'W))))
 
 """
 Base64 encoder
 """
-['P: PlaintextWord](Encode: EncodedWord)
+['P: PlaintextWord](Encoded: EncodedWord)
 
 """
 Base64 decoder
 """
-['E: EncodedWord](Decode: PlaintextWord)
+['E: EncodedWord](Decoded: PlaintextWord)
 
 

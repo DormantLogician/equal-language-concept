@@ -33,10 +33,10 @@ A base64 command line application - supports encoding and decoding data from sta
 (Base64App:
     (read 'ArgV from 'AppArgs else ') then
        ((('ArgV is DecodeMode) then
-           ('''Input is EncodedWord then (write (B64)Decode['''Input] to 'StdOut else ') else FormatErr['''Input]))
+           ('''Input is EncodedWord then (write (B64)Decoded['''Input] to 'StdOut else ') else FormatErr['''Input]))
     or
         (('ArgV is EncodeMode) then
-           ('''Input is PlaintextWord then (write (B64)Encode['''Input] to 'StdOut else ')))
+           ('''Input is PlaintextWord then (write (B64)Encoded['''Input] to 'StdOut else ')))
     or
         (('ArgV is (~DecodeMode and ~EncodeMode)) then CmdErr['''Input]))
 
