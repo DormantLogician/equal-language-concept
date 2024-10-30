@@ -1,7 +1,7 @@
 (B64)
 
-(B64)Encode[PlaintextWord] is EncodedWord
+Encode[PlaintextWord] -> EncodedWord
 
-(B64)Decode[EncodedWord] is PlaintextWord
+Decode[EncodedWord] -> PlaintextWord
 
 

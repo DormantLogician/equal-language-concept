@@ -1,21 +1,19 @@
 ('Base64App)
 
-'CommandLine(read StreamChr from ' else ')(import)(export: 'AppArgs)
+(CommandLine, StdIn, (StdOut, StdErr), ())
 
-'Base64App(read InputWord from ''StdIn else ')(import: 'AppArgs)(export: 'StdOut,'StdErr)
+'' & ""
+StdIn & (B64):PlaintextWord
+StdOut -> (B64):EncodedWord
 
-write EncodeMode to ' else '
-write InputWord to 'StdIn else '
-(read 'Output from 'StdOut else ') is EncodedWord
+'' & "-d"
+StdIn & (B64):EncodedWord
+StdOut -> (B64):PlaintextWord
 
-write DecodeMode to ' else '
-write EncodedWord to 'StdIn else '
-(read 'Output from 'StdOut else ') is PlaintextWord
+StdIn & ~(B64):EncodedWord
+StdOut -> "Error - input is not a base64-encoded string."
 
-write ~EncodedWord to ' else '
-(read 'ErrorMessage from 'StdErr else ') is ((PlaintextGrammar and "Error - input is not a base64-encoded string.") then ~EncodedWord then 'U(2))
-
-write (~EncodeMode and ~DecodeMode) to ' else '
-(read 'ErrorMessage from 'StdErr else ') is ((PlaintextGrammar and "Error - unknown command given to program.") then (~EncodedWord and ~DecodedWord) then 'U(2))
+'' & ~"" & ~"-d"
+StdOut -> "Error - unknown command given to program."
 
 

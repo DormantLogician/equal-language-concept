@@ -1,123 +1,131 @@
-"""
+﻿"""
 Base64 encoder and decoder implementation example.
 """
 (B64)
 
-(Bit: 'T(2) or 'T(3))
+"""
+'T(2) is '0' and 'T(3) is '1'.
+"""
+('Bit, 'T(2) V 'T(3))
 
 """
 The pad character - index is unused by both encoder and decoder, since it is not
 part of the base64 alphabet.
 """
-(Pad: ('A(3) then 'B(3) then 'C(3) then 'D(3) then 'E(3) then 'F(3) then 'G(3) then 'H(3)) then "=")
+('Pad, ('(3) O '(3) O '(3) O '(3) O '(3) O '(3) O '(3) O '(3)) O "=")
+
+"""
+A complete or partial plain text input to encoder.
+"""
+('PlaintextWord, Bit(8) V
+                 (Bit(8) O Bit(8)) V
+                 (Bit(8) O Bit(8) O Bit(8)))
 
 """
 The base64 alphabet - each letter is mapped to an index from 0-63.
 """
-(MappedAlphabetLetter:
-((8)<(intmin)(0) then "A") or 
-((8)<(intmin)(1) then "B") or 
-((8)<(intmin)(2) then "C") or 
-((8)<(intmin)(3) then "D") or 
-((8)<(intmin)(4) then "E") or 
-((8)<(intmin)(5) then "F") or 
-((8)<(intmin)(6) then "G") or 
-((8)<(intmin)(7) then "H") or 
-((8)<(intmin)(8) then "I") or 
-((8)<(intmin)(9) then "J") or 
-((8)<(intmin)(10) then "K") or 
-((8)<(intmin)(11) then "L") or 
-((8)<(intmin)(12) then "M") or 
-((8)<(intmin)(13) then "N") or 
-((8)<(intmin)(14) then "O") or 
-((8)<(intmin)(15) then "P") or 
-((8)<(intmin)(16) then "Q") or 
-((8)<(intmin)(17) then "R") or 
-((8)<(intmin)(18) then "S") or 
-((8)<(intmin)(19) then "T") or 
-((8)<(intmin)(20) then "U") or 
-((8)<(intmin)(21) then "V") or 
-((8)<(intmin)(22) then "W") or 
-((8)<(intmin)(23) then "X") or 
-((8)<(intmin)(24) then "Y") or 
-((8)<(intmin)(25) then "Z") or 
-((8)<(intmin)(26) then "a") or 
-((8)<(intmin)(27) then "b") or 
-((8)<(intmin)(28) then "c") or 
-((8)<(intmin)(29) then "d") or 
-((8)<(intmin)(30) then "e") or 
-((8)<(intmin)(31) then "f") or 
-((8)<(intmin)(32) then "g") or 
-((8)<(intmin)(33) then "h") or 
-((8)<(intmin)(34) then "i") or 
-((8)<(intmin)(35) then "j") or 
-((8)<(intmin)(36) then "k") or 
-((8)<(intmin)(37) then "l") or 
-((8)<(intmin)(38) then "m") or 
-((8)<(intmin)(39) then "n") or 
-((8)<(intmin)(40) then "o") or 
-((8)<(intmin)(41) then "p") or 
-((8)<(intmin)(42) then "q") or 
-((8)<(intmin)(43) then "r") or 
-((8)<(intmin)(44) then "s") or 
-((8)<(intmin)(45) then "t") or 
-((8)<(intmin)(46) then "u") or 
-((8)<(intmin)(47) then "v") or 
-((8)<(intmin)(48) then "w") or 
-((8)<(intmin)(49) then "x") or 
-((8)<(intmin)(50) then "y") or 
-((8)<(intmin)(51) then "z") or 
-((8)<(intmin)(52) then "0") or 
-((8)<(intmin)(53) then "1") or 
-((8)<(intmin)(54) then "2") or 
-((8)<(intmin)(55) then "3") or 
-((8)<(intmin)(56) then "4") or 
-((8)<(intmin)(57) then "5") or 
-((8)<(intmin)(58) then "6") or 
-((8)<(intmin)(59) then "7") or 
-((8)<(intmin)(60) then "8") or 
-((8)<(intmin)(61) then "9") or 
-((8)<(intmin)(62) then "+") or 
-((8)<(intmin)(63) then "/"))
+('MappedAlphabetLetter,
+(<0 O "A") V 
+(<1 O "B") V 
+(<2 O "C") V 
+(<3 O "D") V 
+(<4 O "E") V 
+(<5 O "F") V 
+(<6 O "G") V 
+(<7 O "H") V 
+(<8 O "I") V 
+(<9 O "J") V 
+(<10 O "K") V 
+(<11 O "L") V 
+(<12 O "M") V 
+(<13 O "N") V 
+(<14 O "O") V 
+(<15 O "P") V 
+(<16 O "Q") V 
+(<17 O "R") V 
+(<18 O "S") V 
+(<19 O "T") V 
+(<20 O "U") V 
+(<21 O "V") V 
+(<22 O "W") V 
+(<23 O "X") V 
+(<24 O "Y") V 
+(<25 O "Z") V 
+(<26 O "a") V 
+(<27 O "b") V 
+(<28 O "c") V 
+(<29 O "d") V 
+(<30 O "e") V 
+(<31 O "f") V 
+(<32 O "g") V 
+(<33 O "h") V 
+(<34 O "i") V 
+(<35 O "j") V 
+(<36 O "k") V 
+(<37 O "l") V 
+(<38 O "m") V 
+(<39 O "n") V 
+(<40 O "o") V 
+(<41 O "p") V 
+(<42 O "q") V 
+(<43 O "r") V 
+(<44 O "s") V 
+(<45 O "t") V 
+(<46 O "u") V 
+(<47 O "v") V 
+(<48 O "w") V 
+(<49 O "x") V 
+(<50 O "y") V 
+(<51 O "z") V 
+(<52 O "0") V 
+(<53 O "1") V 
+(<54 O "2") V 
+(<55 O "3") V 
+(<56 O "4") V 
+(<57 O "5") V 
+(<58 O "6") V 
+(<59 O "7") V 
+(<60 O "8") V 
+(<61 O "9") V 
+(<62 O "+") V 
+(<63 O "/"))
 
 """
-Intended to remove the index from a base64 word, leaving only the letters.
+Intended to remove index from a base64 word, leaving only letters.
 """
-+[(('T1:Bit then 'T2:Bit then 'A:Bit then 'B:Bit then 'C:Bit then 'D:Bit then 'E:Bit then 'F:Bit) then 'A1) then 
-  (('T3:Bit then 'T4:Bit then 'G:Bit then 'H:Bit then 'I:Bit then 'J:Bit then 'K:Bit then 'L:Bit) then 'A2) then 
-  (('T5:Bit then 'T6:Bit then 'M:Bit then 'N:Bit then 'O:Bit then 'P:Bit then 'Q:Bit then 'R:Bit) then 'A3) then 
-  (('T7:Bit then 'T8:Bit then 'S:Bit then 'T:Bit then 'U:Bit then 'V:Bit then 'W:Bit then 'X:Bit) then 'A4)]
-(Strip: 'A1 then 'A2 then 'A3 then 'A4)
+(+'Strip[((':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit) O 'A1) O 
+         ((':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit) O 'A2) O 
+         ((':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit) O 'A3) O 
+         ((':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit) O 'A4)],
+'A1 O 'A2 O 'A3 O 'A4)
 
 """
-Intended to remove the index from a single base64 alphabet letter, leaving only the letter.
+Intended to remove the index from a single base64 alphabet letter, leaving only
+the letter.
 """
-+[('T1:Bit then 'T2:Bit then 'A:Bit then 'B:Bit then 'C:Bit then 'D:Bit then 'E:Bit then 'F:Bit) then 'A1]
-(Strip: 'A1)
-
-"""
-A complete or partial plaintext input to encoder.
-"""
-(PlaintextWord: Bit(8) or (Bit(8) then Bit(8)) or (Bit(8) then Bit(8) then Bit(8)))
+(+'Strip[(':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit) O 'A1], 'A1)
 
 """
 A base64 alphabet letter without the index.
 """
-(AlphabetLetter: Strip[MappedAlphabetLetter])
+('AlphabetLetter, Strip[MappedAlphabetLetter])
 
 """
 An encoded base64 word.
 """
-(EncodedWord: AlphabetLetter then AlphabetLetter then (('W if AlphabetLetter) or ('T if Pad)) then ((AlphabetLetter if 'W) or (Pad if ('T or 'W))))
+('EncodedWord, AlphabetLetter O
+               AlphabetLetter O
+               (('W)AlphabetLetter V ('T)Pad) O 
+               ((': 'W)AlphabetLetter V (': 'T V 'W)Pad))
 
 """
 Base64 encoder
 """
-['P: PlaintextWord](Encoded: EncodedWord)
+('Encoded[PlaintextWord], EncodedWord)
 
 """
 Base64 decoder
 """
-['E: EncodedWord](Decoded: PlaintextWord)
+('Decoded[EncodedWord], PlaintextWord)
 
 
