@@ -9,10 +9,10 @@ Encoder/decoder command line application.
 """
 ('CommandLine, 'In:InputWord, ('Out:InputWord, 'Err:((B64):Bit(8),)), (),
  ('' O 'Command) &
- (("-d" O ('A:('In & (B64):EncodedWord) O ('Out & (B64):Decoded['A]))) V
-  ("" O ('B:('In & (B64):PlaintextWord) O ('Out & (B64):Encoded['B]))) V
-  ("-d" O (('In & ~(B64):EncodedWord) O ('Err & "Error - input is not a base64-encoded string."))) V
-  ((~"-d" & ~"") O ('T O ('Err & "Error - unknown command given to program.")))))
+  (("-d" O <('Out, (B64):Decoded['In & (B64):EncodedWord], ')) V
+  ("" O <('Out, (B64):Encoded['In & (B64):PlaintextWord], ')) V
+  ("-d" O (('In & ~(B64):EncodedWord) O <('Err, "Error - input is not a base64-encoded string.", '))) V
+  ((~"-d" & ~"") O <('Err, "Error - unknown command given to program.", '))))
 
 """
 Initialize application.

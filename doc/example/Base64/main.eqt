@@ -2,18 +2,18 @@
 
 (CommandLine, StdIn, (StdOut, StdErr), ())
 
-'' & ""
-StdIn & (B64):PlaintextWord
+<('', "", ')
+<(StdIn, (B64):PlaintextWord, ')
 StdOut -> (B64):EncodedWord
 
-'' & "-d"
-StdIn & (B64):EncodedWord
+<('', "-d", ')
+<(StdIn, (B64):EncodedWord, ')
 StdOut -> (B64):PlaintextWord
 
-StdIn & ~(B64):EncodedWord
+<(StdIn, ~(B64):EncodedWord, ')
 StdOut -> "Error - input is not a base64-encoded string."
 
-'' & ~"" & ~"-d"
+<('', (~"" & ~"-d"), ')
 StdOut -> "Error - unknown command given to program."
 
 
