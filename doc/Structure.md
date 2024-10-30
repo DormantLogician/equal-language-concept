@@ -1,182 +1,184 @@
-### 1. Categories
-    ('A then 'B)                       Category (Non-recursive).
-    ('A then next)                     Category (Recursive).
-    ['T]('A then 'B)                   Category (With template category, Non-recursive).
-    ['T]('A then next['A])             Category (With template category, Recursive).
+﻿### 1. Structures
+#### 1.1 Label
+    'A
+    'A['B]
 
-Categories are structures that can be operated on by intersections - new categories can be made from two or more existing ones this way, which lets developers pose questions about what a particular object is without knowing its exact configuration.
+Used to give names to structure categories so they can be expanded elsewhere - can only be used to store structure categories. Labels may be used to create structure category definitions. Labels may also be anonymous.
 
-Categories can be union (denoted 'or'), composition (denoted 'then'), combination (denoted 'with'), sum (denoted '+'), difference (denoted '-'), product (denoted '*'), or quotient (denoted '/') categories, which affect how category is interpreted by an intersection.
+Labels may be defined with a category called a capture, which makes label accept a category as an argument - these labels can deduce to any category definition that accepts a capture matching restrictions defined by the label. Labels with captures may be used to create structure category definitions.
 
-Categories may be either quantity categories or collection categories depending on
-whether they are an arithmetic relation between quantities or quantity categories or not.
+Captures may be used to map categories to other categories, or add/remove
+structure from categories - for example:
 
-Recursive categories self-instantiate at position of keyword 'next' at end of category -
-call to next may take template category as argument if category is a template.
+    ('[('A,)+'B], 'B)
 
-Quantity categories that are recursive must have only a single quantity or quantity
-category followed by 'next', related by an arithmetic operator.
+In this example, capture extracts possible values for 'B' from a sequence of 'A'.
 
-Template categories may be created inline - for example:
+Labels are also used as placeholders for locations, which may be written to in order to send output outside of program, and read from in order to continuously draw categories into a service from outside of program, or to enable one service to read from another service's exports.
 
-    ['T]['U]('A then 'B)
+#### 1.2 Variable
+    'a
+    'a['b]
 
-This template category is immediately invoked with 'T.
+Variable from arithmetic - can only store numbers. Variables may also be
+anonymous - this is denoted as:
 
-### 2. Grammars, syllables, and letters
-    "a"                                                 Letter.
-    (FirstSyllable: "b" then "c")                       Syllable.
-    ["1.2.3"](GrammarName:
-         (FirstSyllable or SecondSyllable) then next)   Grammar.
+    '['b]
 
-Grammars are categories that are used to describe data that must be of a specific format -
-they are used to enable safe manipulation of text data according to rules of a specific
-data language.
+In this example, an anonymous variable that accepts a capture is used.
+Variables may have captures just like labels.
 
-Grammars are made up of only syllables - they can be overloaded with different versions of a specific grammar. Grammar versions follow a semantic versioning system. Intersection of a grammar with another category, grammar, or syllable tries to use latest versions of grammars that solve intersection.
+Variables are used to create number category definitions.
 
-Categories are considered syllables or grammars when they contain only letters
-such as "a". A letter is only equal to itself, and can be used to build syllables.
+#### 1.3 Integer
+    2
 
-Letters can only be used outside of syllables and grammars if they are within an inline category that is intersected with a grammar.
+Represents a whole number.
 
-Syllables are either one letter, or a sequence of letters that represents a word in a grammar.
+#### 1.4 Fraction
+    2/3
 
-### 3. Strings
-    "Hello, world!"     String.
+A number that cannot be interpreted as an integer - these are left unevaluated
+until underlying decimal is needed.
 
-Strings are sequences of letters - they must be assigned at least one grammar where they are used. For example:
+#### 1.5 Union
+    (('t)'a V 'b) O (('u: 't)'c V 'd)
 
-    PlaintextGrammar and "Hello, world"
+Needed to express structures that have very specific configurations.
 
-If string can be represented as a plaintext, it is expanded into specific instance of the plaintext grammar.
+Defines a category that represents more than one possible structure. Union members may be tagged with a label or variable - this label or variable may be used to restrict members of some other union.
 
-### 4. Services
-    (import: 'Import)(export: 'Export)('A and 'B)            Service.
-    ['T](import: 'Import)(export: 'Export)('A and 'B)        Service (with template category).
+Unions define an exclusive-or (XOR) relationship between union members.
 
-#### 4.1 Inputs
-Users of a service must write an input word to a service's input location to make a request - service runs its intersection, using the input, any data from imports, and private locations in order to determine what is exported. Services can take input continuously or non-continuously, and only react to inputs of a fixed word size at a time, with words of only non-recursive categories, and running its intersection for each word, however many there are. If a service's input reader is declared as non-halting, the writer used to make request to service must also be declared as non-halting, for making intention to not halt explicit.
+Condition tags may be related by either intersection or union - for example:
 
-Services will wait until all services are initialized before accepting requests.
+    (('t)'a V 'b) O
+    (('u)'c V 'd) O
+    (('v: 't & 'u)'e V 'f)
 
-A recursive category may be written to input reader of a service - this causes service to process each word indefinitely, but only if both writer is declared non-halting, and service is capable of accepting non-halting inputs.
+'e' is only active member of its union if both 'a' and 'c' are active members of their unions.
 
-Services can send a 'busy' signal to a reader/writer if queue is full, making caller responsible for retrying request.
+Tags may be used to indicate that two union members in same category are allowed to be active at same time despite the default exclusive-or relationship - for example:
 
-#### 4.2 Imports, exports, and states
-Services must declare imports in order to read from an external location, and exports in order to write to an external location. Locations may be created inside body of service, and are private to service they are inside of - they can store information meant to be used in future requests to service. All locations on interface of service must have a placeholder constraint. Services cannot import their own input location in order to prevent unintended infinite recursion.
+    (('t)'e V ('u: 't)f)
 
-#### 4.3 Communication
-While a service is fulfilling a request, it cannot fulfill any other requests, or be read from by any other service. When a service's exports are being read from by at least one user, service cannot fulfill any requests.
+Both 'e' and 'f' may be active at same time.
 
-#### 4.4 Time-sharing
+Union tags may be anonymous in cases where tag name is unused - for example:
+
+    (('t)'a V 'b) O
+    (('u)'c V 'd) O
+    ((': 't & 'u)'e V 'f)
+
+#### 1.6 Sequence
+    'a O 'b O 'c
+    'a O,
+
+Defines an order-sensitive sequence of structures.
+
+#### 1.7 Collection
+    'a C 'b C 'c
+    'a C,
+
+Defines an unordered collection of structures.
+
+#### 1.8 Readers and writers
+    Reader:
+    >('Location, 'A, 'OnMemoryFull)
+
+    Writer:
+    <('Location, 'A, 'OnMemoryFull)
+
+Read or write to an input/output location, or a service's imports/exports.
+This structure acts like a category representing 'A', but category will
+either be initially read into, or written to a location after end of intersection
+based on whether it is a reader or writer.
+
+Has a clause for an intersection that is executed when memory limit is reached
+for locations - may be omitted using a (') as last member of reader or writer.
+
+#### 1.8 Category
+    Definition:
+    ('A['a], 1 O 2 O, 'a)
+
+    Declaration:
+    ('A['a], Constraint)
+
+    Finite:
+    (1 O 2)
+
+    Infinite:
+    (1 O 2 O,)
+
+Represents numbers and/or structures in language that may be intersected.
+
+Categories may be either finitely or infinitely sized - they have
+a label, body, and optional recursive call field respectively.
+
+Categories may be either category definitions, or inline categories - category definitions have a non-anonymous label attached to them like so:
+
+    ('A['a], 1 O 2 O, 'a)
+
+In this example, a category is defined with the label 'A'.
+
+Inline categories are defined with an anonymous label, like so:
+
+    (', 1 O 2 O)
+    ('['a], 'a O, 'a + 2)[2]
+
+In second example, category is immediately expanded with '2' as initial argument, which generates a pattern.
+
+Categories may be sum (denoted '+'), product (denoted '*'), union (denoted 'V'),
+sequence (denoted 'O'), or collection (denoted 'C') categories.
+
+Number categories that are infinitely sized must contain only one number or number category followed by an infinite sum or product.
+
+Category definitions may be overloaded, like so:
+
+    (+'A['a], 1 O 2 O 'a)
+    (+'A['a O 'b], 'a O 'b)
+
+In this example, label 'A' may be instantiated with either one number, or two numbers - each has a different category body.
+
+If it is unclear which overload must be selected based on argument given to capture,
+a union between all overloaded categories instantiated with argument is
+created at point of reference.
+
+Inline categories may be tagged with a label, like so:
+
+    ('A:(', 1 O 2 O) O (3 O 'A))
+
+In this example, the same category may be referenced in a different location
+in current structure. When category assigned to 'A' changes as result of
+an intersection, it is changed in all other positions 'A' is used.
+
+#### 1.9 Service
+
+    Definition:
+    ('S, 'I:A, ('EA:B->'D1,'EB:C->'D2), ('IA:D, 'IB:E), ('I & 'F))
+
+    Declaration:
+    ('S, 'I:A, ('EA:B,'EB:C), ('IA:D, 'IB:E))
+
+    Service:
+    (', 'I:A, ('EA:B->'D1,'EB:C->'D2), ('IA:D, 'IB:E), ('I & 'F))
+
+Used to express concurrency and processing of user requests.
+
+Has export labels for giving information to other services, and import labels for getting information from other services. Export labels must be specified with a default category
+value if they are being created inline.
+
+A service may write to a new location label within it's intersection - in this case,
+location is local to service, and may be referred to in subsequent runs of the service.
+
+Only synchronous writing, and asynchronous reading is allowed - requests to services are given through a write label (value given to 'I' in service reference, in this case), which allows a service to accept a single category as an input word, processing one word at a time.
+
+Input requests and export read requests are processed in order they are received.
+
+Services can be set to respond to an infinite number of words one by one, in which case application will stay open, listening for new words from either an infinitely sized category, or a read location.
+
+To give input to a service, it's write label must be written to with a matching category.
+
 All service's users are given a fair opportunity to have their read and write requests fulfilled - this is achieved by serving older users first, and having newer users wait until older ones are done being served. Sequences of read requests in queue are combined, and run asynchronously - write requests are processed one at a time.
 
-If queue reaches memory limit, user services must retry requests manually, and service doesn't add to the queue until more memory becomes available.
-
-### 5. Quantities
-    intmin(2)
-    intless(2)
-    int(2)
-    intmore(2)
-    intmax(2)
-    intany(2)                           Integer '2'.
-
-    dec(1.5)
-    decmax(1.5)
-    decany(1.5)                         Decimal '1.5'
-
-    (int(2))(int(2))                    Multiply Integer by Integer
-    (dec(1.5))(dec(1.5))                Multiply Decimal by Decimal
-    (int(2))(dec(1.5))                  Multiply Integer by Decimal
-
-Integers represent a number of the unit '1' - both integers and decimals may only be added and/or multiplied. Both bounded, and arbitrary-sized decimals and integers are defined - exact sizes of bounded decimals and integers depend on specific platform and implementation.
-
-Decimals represent a quantity that can either be a whole number, or a fraction.
-
-Both number type and/or quantity can be deduced from context of an intersection.
-
-Both negative numbers, and a representation of number '0' are supported.
-
-### 6. Functions
-    ('Input to 'Stop with 'Step1['Input] with 'Step2: ('Input and 'U))  Function.
-
-Executes any number of operations any number of times, and/or other functions in a way that eventually outputs 'Stop' - functions are relatable with both operations, and other functions, and can be composed to produce a higher-level function. All functions must either net-reduce or net-expand 'Input' into 'Stop' - this is verified at compile time. Shortest path to 'Stop' is used, using least number of operations to reach 'Stop' for all 'Input'.
-
-### 7. Placeholders
-    a                                                 Variable
-    'A                                                Category placeholder (Compile-time generic).
-    *A                                                Category placeholder (Runtime generic).
-    'A['B]                                            Category placeholder (Templated, Compile-time generic).
-    *A['B]                                            Category placeholder (Templated, Runtime generic).
-    (import: 'Import)(export: 'Export)('Service)      Service placeholder (Compile-time generic).
-    (import: 'Import)(export: 'Export)(*Service)      Service placeholder (Runtime generic).
-    ['A](import: 'Import)(export: 'Export)('Service)  Service placeholder (Templated, Compile-time generic).
-    ['A](import: 'Import)(export: 'Export)('Service)  Service placeholder (Templated, Runtime generic).
-
-    int('B)                    Quantity placeholder.
-
-Placeholders represent an unknown structure that may be deduced from the context of an intersection - placeholders can be used to pose questions about what a particular structure can be, and can be extracted from a template.
-
-Placeholder names must begin with a capital letter to distinguish from variables. Variables must have a name that is a single lowercase letter - they have same behavior as a non-templated category placeholder, and are scoped to category they are inside of just like category placeholders.
-
-Placeholders make it possible to reverse some algorithms, enabling ability to attain the original input. Placeholders exist for categories, quantities, and services.
-
-Placeholders may be added or subtracted (for quantity categories only), multiplied, or divided (for quantity categories only). For example, the following placeholder represents a category containing three structures related though sequence composition:
-
-    'A(3)
-
-Templated category placeholders can only be intersected with another templated placeholder that matches specified template signature.
-
-Also, category placeholders can be constrained and/or used to give a name to a specific category so it can be placed in multiple locations - for example:
-
-    ['A: 'B]('A)
-
-Template given as argument to 'A' must always be an instance of 'B'
-
-### 8. Compositions
-    ('A then 'B)          Composition category.
-    ('A then next)        Composition category (Recursive).
-
-Categories that relate their members through composition are intersected in order from left to right - infinite compositions are supported.
-
-### 9. Combinations
-    ('A with 'B)          Combination category.
-    ('A with next)        Combination category (Recursive).
-
-Categories that relate their members through combination are not sensitive to order. Infinite combinations are supported.
-
-Intersection of combination categories may output tagged unions that describe which structures can be where, and when.
-
-### 10. Unions
-    ('A or 'B)          Union category.
-
-Categories that relate their members by union are intersected in such a way that each member of union is intersected with other terms in intersection. If multiple union categories are intersected, each term in each union is intersected with all all other terms.
-
-Unions may be tagged so a member of one union can only be active if one or more members of another union are active - in the example:
-
-    ((('T of 'A) or 'B) then (('C if 'T) or 'D))
-
-'C' can only be active in second union if 'A' is active in first union.
-
-Conditions may use intersection and/or union relations - for example:
-
-    ((('T of 'A) or 'B) then (('U of 'C) or 'D) then (('E if 'T or 'U) or 'F))
-
-'E' is only active member of last union if 'A' and 'C' are active members of
-their unions.
-
-Recursive unions are not supported.
-
-### 11. Equalities
-    ('A = 'B)
-
-Two categories that are compared in an arbitrary way. Operations may be performed on
-equalities as if they were a single category, and allow operations to be performed
-on either side, or both sides - for example:
-
-    ('A = 'B) + (2, ')
-
-This generates a new equality where 'A' is increased by '2', and 'B is the same.
-
+A 'main' location is defined that that contains a delimited sequence of 8-bit sequences (strings) supplied by user on command line - this label is denoted ('').

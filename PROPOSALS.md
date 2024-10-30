@@ -1,11 +1,10 @@
-### 1. Undecidable recursion
-Language would have ability to explicitly express algorithms that are desinged to stop running, but cannot be proven to, in attempt to make language turing-complete, if it isn't already.
+﻿### 1. Undecidable recursion
+Language would have ability to explicitly express algorithms that are designed to stop running, but cannot be proven to, in attempt to make language Turing-complete, if it isn't already.
 
-### 2. Machine code representation
+### 2. Code reification
 Adjustable optimization for performance, memory usage, binary size, power efficiency, and/or ABI stability.
 
-Supports optimizing specific code to prioritize one or more non-functional properties.
-Machine code can be generated that has the following traits:
+Supports optimizing specific code to prioritize one or more non-functional properties. Machine code can be generated that has the following traits:
 
 - Fixed worst-case performance
 - Data-agnostic performance        (Execution time not affected by input data - for prevention of side-channel attacks)
@@ -46,3 +45,7 @@ Breaking changes may also be made by using 'Break' task when requested.
 Supports version tagging in case of 'Retract', 'Fork' and 'Break' tasks,
 because they affect the ABI.
 
+### 5. Functions
+    ('Input, 'Stop, Step1['Input] C Step2:('Input & 'A))
+
+Executes any number of operations any number of times, and/or other functions in a way that eventually outputs 'Stop' - functions are relatable with both operations, and other functions, and can be composed to produce a higher-level function. All functions must either net-reduce or net-expand 'Input' into 'Stop'. Shortest path to 'Stop' is used, using least number of operations to reach 'Stop' for all 'Input'.
