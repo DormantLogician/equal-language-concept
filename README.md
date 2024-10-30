@@ -1,11 +1,11 @@
-## 1. Aequalis Programming Language Concept
+## 1. Equal Programming Language Concept
 ### 1.1 Important information
-Aequalis is a concept for an experimental programming language, rather than a specific implementation, so features described in documentation may or may not be possible to implement, or they may only be able to be implemented to a certain degree.
+Equal is a concept for an experimental programming language, rather than a specific implementation, so features described in documentation may or may not be possible to implement, or they may only be able to be implemented to a certain degree.
 
 ### 1.2 Summary
-Aequalis is a programming language where intersections between categories completely replace algorithms.
+Equal is a programming language where intersections between categories completely replace algorithms.
 
-Aequalis is simple, because it does not have many features, and because intersection is the only way operations can be performed.
+Equal is simple, because it does not have many features, and because intersection is the only way operations can be performed.
 
 It is error-resistant both because we specify what something is, rather than how it works, and because the way language is designed allows all possible system behaviors to be traversed and/or tested easily.
 
