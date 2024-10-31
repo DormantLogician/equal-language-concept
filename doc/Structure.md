@@ -3,7 +3,7 @@
     'A
     'A['B]
 
-Used to give names to structure categories so they can be expanded elsewhere - can only be used to store structure categories. Labels may be used to create structure category definitions. Labels may also be anonymous.
+Used to give names to structure categories so they can be expanded elsewhere - can only be used to store structure categories. Labels may be used to create structure category definitions - they must begin with an uppercase letter. Labels may also be anonymous.
 
 Labels may be defined with a category called a capture, which makes label accept a category as an argument - these labels can deduce to any category definition that accepts a capture matching restrictions defined by the label. Labels with captures may be used to create structure category definitions.
 
@@ -28,7 +28,8 @@ anonymous - this is denoted as:
 In this example, an anonymous variable that accepts a capture is used.
 Variables may have captures just like labels.
 
-Variables are used to create number category definitions.
+Variables are used to create number category definitions - they must begin
+with a lowercase letter.
 
 #### 1.3 Integer
     2
@@ -98,8 +99,11 @@ Has a clause for an intersection that is executed when memory limit is reached
 for locations - may be omitted using a (') as last member of reader or writer.
 
 #### 1.8 Category
-    Definition:
+    Definition (Structure):
     ('A['a], 1 O 2 O, 'a)
+
+    Definition (Number - stops after specific number of items):
+    ('Pow['n O 'p], 'n *, 'n, 'p)
 
     Declaration:
     ('A['a], Constraint)
@@ -132,6 +136,8 @@ Categories may be sum (denoted '+'), product (denoted '*'), union (denoted 'V'),
 sequence (denoted 'O'), or collection (denoted 'C') categories.
 
 Number categories that are infinitely sized must contain only one number or number category followed by an infinite sum or product.
+
+Any infinitely-sized category may have a fourth item that denotes stopping at nth structure/number in sequence.
 
 Category definitions may be overloaded, like so:
 
