@@ -108,10 +108,10 @@ for locations - may be omitted using a (') as last member of reader or writer.
     Declaration:
     ('A['a], Constraint)
 
-    Finite:
+    Instance (Structure - finite):
     (1 O 2)
 
-    Infinite:
+    Instance (Structure - infinite):
     (1 O 2 O,)
 
 Represents numbers and/or structures in language that may be intersected.
@@ -166,7 +166,7 @@ an intersection, it is changed in all other positions 'A' is used.
     Declaration:
     ('S, 'I:A, ('EA:B,'EB:C), ('IA:D, 'IB:E))
 
-    Service:
+    Instance:
     (', 'I:A, ('EA:B->'D1,'EB:C->'D2), ('IA:D, 'IB:E), ('I & 'F))
 
 Used to express concurrency and processing of user requests.
