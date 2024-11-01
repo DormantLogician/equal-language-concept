@@ -9,7 +9,7 @@ Equal is simple, because it does not have many features, and because intersectio
 
 It is error-resistant both because we specify what something is, rather than how it works, and because the way language is designed allows all possible system behaviors to be traversed and/or tested easily.
 
-Also, it is expressive to the point where it can be used to do what most, if not all things other languages can do - it allows posing questions about what certain structures are, given incomplete information by using deduction. Not only can we get output from input, we can also get input from output in some cases.
+Also, it is expressive to the point where it can be used to do many things other languages can do - it allows posing questions about what certain structures are, given incomplete information by using deduction. Not only can we get output of an operation from its inputs, we can also deduce what an input is, given an output.
 
 ### 1.3 Intersection as computation method
 A basic program in written in language is expressed:
