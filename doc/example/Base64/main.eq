@@ -12,7 +12,7 @@ Encoder/decoder command line application.
   (("-d" O 'A:(B64):EncodedWord O <('Out, 'A, ')) V
   ("" O  O 'B:(B64):PlaintextWord O <('Out, 'B, ')) V
   ("-d" O ~(B64):EncodedWord O <('Err, "Error - input is not a base64-encoded string.", ')) V
-  ((~"-d" & ~"") O ' O <('Err, "Error - unknown command given to program.", '))))
+  ((~"" & ~"-d") O ' O <('Err, "Error - unknown command given to program.", '))))
 
 """
 Initialize application.
