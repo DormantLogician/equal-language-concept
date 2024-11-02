@@ -4,17 +4,18 @@
     module.eq
 
     Header:
-    module.eqh
+    module.eqm
 
     Test source:
     module.eqt
+    subsystem.eqt
 
     Subsystem root:
-    .equalmodules
+    subsystem.eqs
 
 #### 1.2 Modules
     Module Import:
-    (A:B)<-".EXTERN/ETP9nJHVUVh20LjhmD9E/module.eqh"
+    (A:B)<-".EXTERN/ETP9nJHVUVh20LjhmD9E/module.eqm"
 
     Module Import (Optional - C/C++ header):
     (A:B)<-".EXTERN/module.h"
@@ -33,10 +34,10 @@ At top of both source and header, a module definition must be specified - this a
 #### 1.3 Subsystems
 Example subsystem configuration - subsystem root, and identifier contents respectively:
 
-    .equalmodule
+    subsystem.eqs
     "ETP9nJHVUVh20LjhmD9E"
 
-Subsystems are a collection of modules - they are indicated by the configuration component '.equalmodule' at the root of subsystem - name defines a unique identifier for subsystem, and indicates that all modules from the root down, excluding modules that are parts of other subsystems, are part of this subsystem. When compiler is run, all subsystems in project are registered recursivly from the top down. Subsystems installed on system are detected, and made available to project.
+Subsystems are a collection of modules - they are indicated by the configuration component '.eqs' at the root of subsystem - name defines a unique identifier for subsystem, and indicates that all modules from the root down, excluding modules that are parts of other subsystems, are part of this subsystem. When compiler is run, all subsystems in project are registered recursivly from the top down. Subsystems installed on system are detected, and made available to project.
 
 Subsystems are tagged with a randomly generated identifier of 20 characters containing only letters and/or numbers - this identifier disambiguates the includes of one module from another, even if headers have the same names.
 
@@ -48,10 +49,10 @@ Subsystems are tagged with a randomly generated identifier of 20 characters cont
     .SUBSYS
 
     Example of path to system module:
-    ".EXTERN/ETP9nJHVUVh20LjhmD9E/module.eqh"
+    ".EXTERN/ETP9nJHVUVh20LjhmD9E/module.eqm"
 
     Example of path to module in current project:
-    ".SUBSYS/ETP9nJHVUVh20LjhmD9E/module.eqh"
+    ".SUBSYS/ETP9nJHVUVh20LjhmD9E/module.eqm"
 
 #### 1.4 Comments
     # Example

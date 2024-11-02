@@ -1,6 +1,6 @@
 (Base64App)
 
-(B64)<-".EXTERN/ETP9nJHVUVh20LjhmD9E/base64.eqh"
+(B64)<-".EXTERN/ETP9nJHVUVh20LjhmD9E/base64.eqm"
 
 ('InputWord, (B64):PlaintextWord V ((B64):Bit(8) O (B64):Bit(8) O (B64):Bit(8) O (B64):Bit(8)))
 
