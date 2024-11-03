@@ -33,8 +33,3 @@ Supports version tagging in case of 'Retract', 'Fork' and 'Break' tasks,
 because they affect the ABI.
 
 This provision is designed to protect libraries against unintended changes to ABI.
-
-### 5. Functions
-    ('Input, 'Stop, Step1['Input] C Step2:('Input & 'A))
-
-Executes any number of operations any number of times, and/or other functions in a way that eventually outputs 'Stop' - functions are relatable with both operations, and other functions, and can be composed to produce a higher-level function. All functions must either net-reduce or net-expand 'Input' into 'Stop'. Shortest path to 'Stop' is used, using least number of operations to reach 'Stop' for all 'Input'.
