@@ -83,21 +83,6 @@ Defines an order-sensitive sequence of structures.
 
 Defines an unordered collection of structures.
 
-#### 1.8 Readers and writers
-    Reader:
-    >('Location, 'A, 'OnMemoryFull)
-
-    Writer:
-    <('Location, 'A, 'OnMemoryFull)
-
-Read or write to an input/output location, or a service's imports/exports.
-This structure acts like a category representing 'A', but category will
-either be initially read into, or written to a location after end of intersection
-based on whether it is a reader or writer.
-
-Has a clause for an intersection that is executed when memory limit is reached
-for locations - may be omitted using a (') as last member of reader or writer.
-
 #### 1.8 Category
     Definition (Structure):
     ('A['a], 1 O 2 O, 'a)
