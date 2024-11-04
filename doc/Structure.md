@@ -148,34 +148,3 @@ Inline categories may be tagged with a label, like so:
 In this example, the same category may be referenced in a different location
 in current structure. When category assigned to 'A' changes as result of
 an intersection, it is changed in all other positions 'A' is used.
-
-#### 1.9 Service
-
-    Definition:
-    ('S, 'I:A, ('EA:B->'D1,'EB:C->'D2), ('IA:D, 'IB:E), ('I & 'F))
-
-    Declaration:
-    ('S, 'I:A, ('EA:B,'EB:C), ('IA:D, 'IB:E))
-
-    Instance:
-    (', 'I:A, ('EA:B->'D1,'EB:C->'D2), ('IA:D, 'IB:E), ('I & 'F))
-
-Used to express concurrency and processing of user requests.
-
-Has export labels for giving information to other services, and import labels for getting information from other services. Export labels must be specified with a default category
-value if they are being created inline.
-
-A service may write to a new location label within it's intersection - in this case,
-location is local to service, and may be referred to in subsequent runs of the service.
-
-Only synchronous writing, and asynchronous reading is allowed - requests to services are given through a write label (value given to 'I' in service reference, in this case), which allows a service to accept a single category as an input word, processing one word at a time.
-
-Input requests and export read requests are processed in order they are received.
-
-Services can be set to respond to an infinite number of words one by one, in which case application will stay open, listening for new words from either an infinitely sized category, or a read location.
-
-To give input to a service, it's write label must be written to with a matching category.
-
-All service's users are given a fair opportunity to have their read and write requests fulfilled - this is achieved by serving older users first, and having newer users wait until older ones are done being served. Sequences of read requests in queue are combined, and run asynchronously - write requests are processed one at a time.
-
-A 'main' location is defined that that contains a delimited sequence of 8-bit sequences (strings) supplied by user on command line - this label is denoted (''').
