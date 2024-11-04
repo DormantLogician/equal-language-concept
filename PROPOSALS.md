@@ -33,3 +33,6 @@ Supports version tagging in case of 'Retract', 'Fork' and 'Break' tasks,
 because they affect the ABI.
 
 This provision is designed to protect libraries against unintended changes to ABI.
+
+#### 5. Automatic test file generation
+If a test file doesn't exist already for a particular module, it is generated, having same file name as source and/or header files for that module - file is used to describe what services designed by developer output, and when. File is meant to be generated and checked by developer initially, then modified to add extended or reduced scope of testing by the developer, if needed. Tests are always executed against services described in module at run time, after compilation. File can be generated even if source for module is not available, but data about when particular output is produced is not available in that case.
