@@ -1,6 +1,6 @@
 ### 1. Operations
 #### 1.1 Intersection
-    'First & 'Second' & 'Third
+    'First & 'Second'
 
 Used to pose questions about what certain structures are.
 
