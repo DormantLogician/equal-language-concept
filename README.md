@@ -7,16 +7,16 @@ Equal is a programming language where intersections between categories completel
 
 Equal is simple, because it does not have many features, and because intersection is the only way operations can be performed.
 
-It is error-resistant both because we specify what something is, rather than how it works, and because the way language is designed allows all possible system behaviors to be traversed and/or tested easily.
+It is error-resistant both because we specify what something is, rather than how it works, and because the way language is designed allows all possible system behaviors to be traversed and/or tested.
 
-Also, it is expressive to the point where it can be used to do many things other languages can do - it allows posing questions about what certain structures are, given incomplete information by using deduction. Not only can we get output of an operation from its inputs, we can also deduce what an input is, given an output.
+Also, it is expressive to the point where it can be used to do many things other languages can do - it allows posing questions about what certain structures are, given incomplete information by using deduction. Not only can we get output of an operation from its inputs, we can also deduce what an input is given an output.
 
 ### 1.3 Intersection as computation method
 A basic program in written in language is expressed:
 
     'A & 'B
 
-In this example, intersection of 'A and 'B categories removes differences between them, producing a third category type representing only structures they have in common. Intersections enable reduction of a search space in order to find specific structures (output of intersection) within that space. If an output can be produced, intersection will output a solution if there is one - otherwise, it will yield a contradiction.
+In this example, intersection of 'A and 'B categories removes differences between them, producing a third category type representing only structures they have in common. Intersections enable reduction of a search space in order to find specific structures (output of intersection) within that space. If an output can be produced, intersection will output a solution if there is one - otherwise, it will output a contradiction.
 
 ### 1.4 Example
 The following example defines and uses a generic 'Rule' category to sort integers. Collection is reordered by language to fit inside 'Rule', which completes sorting process.
