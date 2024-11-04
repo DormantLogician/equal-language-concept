@@ -16,9 +16,9 @@ Labels may be defined with a category called a capture, which makes label accept
 Captures may be used to map categories to other categories, or add/remove
 structure from categories - for example:
 
-    ('[('A,)+'B], 'B)
+    ('['A O 'B], 'B)
 
-In this example, capture extracts possible values for 'B' from a sequence of 'A'.
+In this example, capture extracts value of 'B'.
 
 Labels are also used as placeholders for locations, which may be written to in order to send output outside of program, and read from in order to continuously draw categories into a service from outside of program, or to enable one service to read from another service's exports.
 
