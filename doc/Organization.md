@@ -27,7 +27,9 @@
     (A:B):'C
 
     Service label reference bound by module alias:
-    (A:B):(C['B], 'W, ('EA,'EB), ('IA, 'IB))
+    (A:B):(C['D], 'W, ('EA,'EB), ('IA, 'IB))
+
+Used to organize code into sections.
 
 At top of both source and header, a module definition must be specified - this acts as an identifier for a module that is imported in other modules. Importer must define an alias for all imported modules. Aliases are only used when refering to code from a different module. Modules imported by a separate module are not exported.
 
@@ -36,6 +38,8 @@ Example subsystem configuration - subsystem root, and identifier contents respec
 
     subsystem.eqs
     "ETP9nJHVUVh20LjhmD9E"
+
+Used for distribution of a module or set of modules.
 
 Subsystems are a collection of modules - they are indicated by the configuration component '.eqs' at the root of subsystem - name defines a unique identifier for subsystem, and indicates that all modules from the root down, excluding modules that are parts of other subsystems, are part of this subsystem. When compiler is run, all subsystems in project are registered recursivly from the top down. Subsystems installed on system are detected, and made available to project.
 

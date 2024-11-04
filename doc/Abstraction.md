@@ -2,7 +2,10 @@
 #### 1.1 Negation
     ~'Name
 
-Used to express that output category of an intersection is not an instance of the specified category. Some categories cannot be expressed without negation.
+Used to express that output category of an intersection is not an instance of the specified category. Some categories cannot be expressed without negation, such as
+a prime number category:
+
+('Prime, 'Gte[2] & ~'Composite)
 
 Indicates that structures in category are to be removed from any intersection they are part of.
 
@@ -16,7 +19,7 @@ Indicates that structures in category are to be removed from any intersection th
 Read or write to an input/output location, or a service's imports/exports.
 This structure acts like a category representing 'A', but category will
 either be initially read into, or written to a location after end of intersection
-based on whether it is a reader or writer.
+based on whether it is a reader or writer respectively.
 
 Has a clause for an intersection that is executed when memory limit is reached
 for locations - may be omitted using a (') as last member of reader or writer.
@@ -24,13 +27,10 @@ for locations - may be omitted using a (') as last member of reader or writer.
 #### 1.3 Service
 
     Definition:
-    ('S, 'I:A, ('EA:B->'D1,'EB:C->'D2), ('IA:D, 'IB:E), ('I & 'F))
+    ('S, 'I:A, ('EA:B->'D1,'EB:C->'D2), ('IA:D, 'IB:E), 'I & 'F)
 
     Declaration:
-    ('S, 'I:A, ('EA:B,'EB:C), ('IA:D, 'IB:E))
-
-    Instance:
-    (', 'I:A, ('EA:B->'D1,'EB:C->'D2), ('IA:D, 'IB:E), ('I & 'F))
+    ('S, 'I:A, ('EA:B,'EB:C), 'IA:D, 'IB:E)
 
 Used to express concurrency and processing of user requests.
 

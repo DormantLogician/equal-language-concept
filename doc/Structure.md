@@ -32,7 +32,6 @@ anonymous - this is denoted as:
     '['b]
 
 In this example, an anonymous variable that accepts a capture is used.
-Variables may have captures just like labels.
 
 Variables are used to create number category definitions - they must begin
 with a lowercase letter.
@@ -81,13 +80,16 @@ Union tags may be anonymous in cases where tag name is unused - for example:
     'a O 'b O 'c
     'a O,
 
-Defines an order-sensitive sequence of structures.
+Defines an order-sensitive sequence of structures. Used to compose categories
+in order to form a new one.
 
 #### 1.7 Collection
     'a C 'b C 'c
     'a C,
 
-Defines an unordered collection of structures.
+Defines an unordered collection of structures. Items in a collection may be
+rearranged to fit inside another category when intersected - generates unions
+in cases where two or more possible items may fit in a specific location.
 
 #### 1.8 Category
     Definition (Structure):
@@ -118,17 +120,17 @@ In this example, a category is defined with the label 'A'.
 
 Inline categories are defined with an anonymous label, like so:
 
-    (', 1 O 2 O)
-    ('['a], 'a O, 'a + 2)[2]
+    ('', 1 O 2 O)
+    (''['a], 'a O, 'a + 2)[2]
 
 In second example, category is immediately expanded with '2' as initial argument, which generates a pattern.
 
 Categories may be sum (denoted '+'), product (denoted '*'), union (denoted 'V'),
 sequence (denoted 'O'), or collection (denoted 'C') categories.
 
-Number categories that are infinitely sized must contain only one number or number category followed by an infinite sum or product.
+Number categories that are infinitely sized must contain only one number or number category followed by an infinite sum or product so they can be evaluated.
 
-Any infinitely-sized category may have a fourth item that denotes stopping at nth structure/number in sequence.
+Any infinitely-sized category may have a fourth item that denotes expansion of category to nth structure/number in pattern.
 
 Category definitions may be overloaded, like so:
 
@@ -143,7 +145,7 @@ created at point of reference.
 
 Inline categories may be tagged with a label, like so:
 
-    ('A:(', 1 O 2 O) O (3 O 'A))
+    ('A:('', 1 O 2 O) O (3 O 'A))
 
 In this example, the same category may be referenced in a different location
 in current structure. When category assigned to 'A' changes as result of

@@ -12,7 +12,7 @@ Base64 encoder and decoder implementation example.
 The pad character - index is unused by both encoder and decoder, since it is not
 part of the base64 alphabet.
 """
-('Pad, ('(3) O '(3) O '(3) O '(3) O '(3) O '(3) O '(3) O '(3)) O "=")
+('Pad, (''(3) O ''(3) O ''(3) O ''(3) O ''(3) O ''(3) O ''(3) O ''(3)) O "=")
 
 """
 A complete or partial plain text input to encoder.
@@ -93,17 +93,17 @@ The base64 alphabet - each letter is mapped to an index from 0-63.
 """
 Intended to remove index from a base64 word, leaving only letters.
 """
-(+'Strip[((':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit) O 'A1) O 
-         ((':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit) O 'A2) O 
-         ((':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit) O 'A3) O 
-         ((':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit) O 'A4)],
+(+'Strip[(('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'A1) O 
+         (('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'A2) O 
+         (('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'A3) O 
+         (('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'A4)],
 'A1 O 'A2 O 'A3 O 'A4)
 
 """
 Intended to remove the index from a single base64 alphabet letter, leaving only
 the letter.
 """
-(+'Strip[(':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit O ':Bit) O 'A1], 'A1)
+(+'Strip[('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'A1], 'A1)
 
 """
 A base64 alphabet letter without the index.

@@ -1,20 +1,23 @@
 ### 1. Operations
 #### 1.1 Intersection
-    'First & 'Second'
+    'First & 'Second
 
 Used to pose questions about what certain structures are.
 
 Generates a single category that contains only structures all members of
 intersection have in common - it is defined for union, sequence, collection, sum, and product categories.
 
-A structure called an unevaluated context may be created in cases where an intersection cannot be proven to halt. Unevaluated contexts can be narrowed by intersecting with other categories, which can make them able to be evaluated.
+Intersection of sum and/or product categories will produce a third category that includes
+only numbers all intersected categories have in common.
+
+An unevaluated intersection may be created in cases where an intersection cannot be proven to halt. Unevaluated contexts can be narrowed by intersecting with other categories, which can make them able to be evaluated.
 
 ### 1.2 Application
     'A -> 'B
 
 If left-hand side of application is an instance of right-hand side, evaluates to left-hand side, otherwise raises a contradiction.
 
-Applications can only be used in a test context.
+Applications can only be used in test contexts - for assertions in tests.
 
 #### 1.3 Sum
     'a + 'b
@@ -48,8 +51,8 @@ number - otherwise, creates a fraction.
 
 Indicates that category or service with specified label is to be instantiated at position - this creates an anonymous version of that category or service in the form of:
 
-    ('['A], 'B O 'C)
+    (''['A], 'B O 'C)
 
 In this example, first item in category is an anonymous label.
 
-Service references must be called with a write label - this label may be written to in order to make request to service.
+Service references must be called with a write location - this label may be written to in order to make request to service.
