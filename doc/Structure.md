@@ -3,7 +3,13 @@
     'A
     'A['B]
 
-Used to give names to structure categories so they can be expanded elsewhere - can only be used to store structure categories. Labels may be used to create structure category definitions - they must begin with an uppercase letter. Labels may also be anonymous.
+Used to give names to structure categories so they can be expanded elsewhere - can only be used to store structure categories. Labels may be used to create structure category definitions - they must begin with an uppercase letter.
+
+Labels may also be anonymous - this is denoted:
+
+    ''['B]
+
+In this example, an anonymous label that accepts a capture is used.
 
 Labels may be defined with a category called a capture, which makes label accept a category as an argument - these labels can deduce to any category definition that accepts a capture matching restrictions defined by the label. Labels with captures may be used to create structure category definitions.
 
@@ -172,4 +178,4 @@ To give input to a service, it's write label must be written to with a matching 
 
 All service's users are given a fair opportunity to have their read and write requests fulfilled - this is achieved by serving older users first, and having newer users wait until older ones are done being served. Sequences of read requests in queue are combined, and run asynchronously - write requests are processed one at a time.
 
-A 'main' location is defined that that contains a delimited sequence of 8-bit sequences (strings) supplied by user on command line - this label is denoted ('').
+A 'main' location is defined that that contains a delimited sequence of 8-bit sequences (strings) supplied by user on command line - this label is denoted (''').
