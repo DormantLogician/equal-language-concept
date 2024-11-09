@@ -115,16 +115,19 @@ An encoded base64 word.
 """
 ('EncodedWord, AlphabetLetter O
                AlphabetLetter O
-               (('W)AlphabetLetter V ('T)Pad) O 
-               ((': 'W)AlphabetLetter V (': 'T V 'W)Pad))
+               (('A)AlphabetLetter V ('B)Pad) O 
+               ((': 'A)AlphabetLetter V (': 'B V 'A)Pad))
 
 """
-Base64 encoder
+Base64 encoder.
+
+A constraint (EncodedWord) is used here instead of the body in order to hide
+implementation of category from user.
 """
 ('Encoded[PlaintextWord], EncodedWord)
 
 """
-Base64 decoder
+Base64 decoder.
 """
 ('Decoded[EncodedWord], PlaintextWord)
 
