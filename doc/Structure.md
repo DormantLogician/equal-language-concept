@@ -118,12 +118,13 @@ Categories may be either category definitions, or inline categories - category d
 
 In this example, a category is defined with the label 'A'.
 
-Inline categories are defined with an anonymous label, like so:
+Inline categories are defined with an anonymous label if they
+accept a capture, like so:
 
-    ('', 1 O 2 O)
     (''['a], 'a O, 'a + 2)[2]
 
-In second example, category is immediately expanded with '2' as initial argument, which generates a pattern.
+In this example, category is immediately expanded with '2' as initial argument to
+capture, which generates a pattern.
 
 Categories may be sum (denoted '+'), product (denoted '*'), union (denoted 'V'),
 sequence (denoted 'O'), or collection (denoted 'C') categories.
@@ -145,7 +146,7 @@ created at point of reference.
 
 Inline categories may be tagged with a label, like so:
 
-    ('A:('', 1 O 2 O) O (3 O 'A))
+    ('A:(1 O 2 O) O (3 O 'A))
 
 In this example, the same category may be referenced in a different location
 in current structure. When category assigned to 'A' changes as result of
