@@ -41,6 +41,6 @@ Pad)
 """
 In decoder, we deduce what plaintext is based on description of encoded word.
 """
-('Decoded['E:EncodedWord], Strip['[Regroup['P:PlaintextWord] & (', Strip['Remapped] & 'E, 'Remapped) & MappedEncodedWord], 'P])
+('Decoded['E:EncodedWord], Strip['[Regroup['P:PlaintextWord] & (Strip['Remapped] & 'E, 'Remapped) & MappedEncodedWord], 'P])
 
 
