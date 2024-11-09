@@ -95,17 +95,17 @@ to fit into correct positions in 'MappedEncodedWord' based on plaintext letters.
 """
 Intended to remove index from a base64 word, leaving only letters.
 """
-(+'Strip[(('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'A1) O 
-         (('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'A2) O 
-         (('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'A3) O 
-         (('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'A4)],
-'A1 O 'A2 O 'A3 O 'A4)
+(+'Strip[(('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'A) O 
+         (('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'B) O 
+         (('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'C) O 
+         (('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'D)],
+'A O 'B O 'C O 'D)
 
 """
 Intended to remove the index from a single base64 alphabet letter, leaving only
 the letter.
 """
-(+'Strip[('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'A1], 'A1)
+(+'Strip[('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'A], 'A)
 
 """
 A base64 alphabet letter without the index.
