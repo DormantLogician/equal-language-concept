@@ -6,7 +6,6 @@ Adjustable optimization for performance, memory usage, binary size, power effici
 
 Supports optimizing specific code to prioritize one or more non-functional properties. Machine code can be generated that has the following traits:
 
-- Fixed worst-case performance
 - Data-agnostic performance        (Execution time not affected by input data - for prevention of side-channel attacks)
 
 Language is both similar to an array programming language, and is not primarily algorithm-based, so this feature may be required in order to meet specific non-functional requirements.

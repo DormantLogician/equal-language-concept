@@ -25,7 +25,6 @@ Has a clause for an intersection that is executed when memory limit is reached
 for locations - may be omitted using a (') as last member of reader or writer.
 
 #### 1.3 Service
-
     Definition:
     ('S, 'I:A, ('EA:B->'D1,'EB:C->'D2), ('IA:D, 'IB:E), 'I & 'F)
 
@@ -37,7 +36,7 @@ Used to express concurrency and processing of user requests.
 Has export labels for giving information to other services, and import labels for getting information from other services. Export labels must be specified with a default category
 value if they are being created inline.
 
-A service may write to a new location label within it's intersection - in this case,
+A service may write to a new location label within it's intersection - label must be constrained to a specific category signature, just like imports and exports. In this case,
 location is local to service, and may be referred to in subsequent runs of the service.
 
 Only synchronous writing, and asynchronous reading is allowed - requests to services are given through a write label (value given to 'I' in service reference, in this case), which allows a service to accept a single category as an input word, processing one word at a time.
