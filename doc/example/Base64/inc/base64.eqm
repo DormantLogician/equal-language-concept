@@ -10,12 +10,12 @@ Base64 encoder and decoder implementation example.
 
 """
 The pad character - index is unused by both encoder and decoder, since it is not
-part of the base64 alphabet.
+part of base64 alphabet.
 """
 ('Pad, (''(3) O ''(3) O ''(3) O ''(3) O ''(3) O ''(3) O ''(3) O ''(3)) O "=")
 
 """
-A complete or partial plain text input to encoder.
+A complete or partial plaintext input to encoder.
 """
 ('PlaintextWord, Bit(8) V
                  (Bit(8) O Bit(8)) V
@@ -23,6 +23,8 @@ A complete or partial plain text input to encoder.
 
 """
 The base64 alphabet - each letter is mapped to an index from 0-63.
+Composing each letter with an index allows letters to be rearranged by Equal
+to fit into correct positions in 'MappedEncodedWord' based on plaintext letters.
 """
 ('MappedAlphabetLetter,
 (<0 O "A") V 
@@ -122,7 +124,7 @@ An encoded base64 word.
 Base64 encoder.
 
 A constraint (EncodedWord) is used here instead of the body in order to hide
-implementation of category from user.
+implementation of this category from user.
 """
 ('Encoded[PlaintextWord], EncodedWord)
 
