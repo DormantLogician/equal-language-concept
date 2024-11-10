@@ -15,7 +15,7 @@ part of base64 alphabet.
 ('Pad, (''(3) O ''(3) O ''(3) O ''(3) O ''(3) O ''(3) O ''(3) O ''(3)) O "=")
 
 """
-A complete or partial plaintext input to encoder.
+A complete or partial plain text input to encoder.
 """
 ('PlaintextWord, Bit(8) V
                  (Bit(8) O Bit(8)) V
@@ -24,7 +24,7 @@ A complete or partial plaintext input to encoder.
 """
 The base64 alphabet - each letter is mapped to an index from 0-63.
 Composing each letter with an index allows letters to be rearranged by Equal
-to fit into correct positions in 'MappedEncodedWord' based on plaintext letters.
+to fit into correct positions in 'MappedEncodedWord' based on plain text letters.
 """
 ('MappedAlphabetLetter,
 (<0 O "A") V 

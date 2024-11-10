@@ -1,4 +1,4 @@
-(B64)
+﻿(B64)
 
 """
 Rearranges 1, 2, or 3 octets into 4 6-bit groups, adding a number of '0' bits to
@@ -39,7 +39,7 @@ Pad)
 ('Encoded['P:PlaintextWord], Strip[Regroup['P]])
 
 """
-In decoder, we deduce what plaintext is based on description of encoded word.
+In decoder, we deduce what plain text is based on description of encoded word.
 """
 ('Decoded['E:EncodedWord], Strip['[Regroup['P:PlaintextWord] & (Strip['Remapped] & 'E, 'Remapped) & MappedEncodedWord], 'P])
 
