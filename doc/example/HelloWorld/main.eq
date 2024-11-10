@@ -1,7 +1,7 @@
 (HelloWorld)
 
-('CommandLine, ('Input), (), (),
-    <('StdOut, "Hello world!", '')
+('CommandLine, ('Input), (StdOut), (),
+    <('StdOut, "Hello world!", '') & 'A
 )
 
 (CommandLine, ('''), (), ())
