@@ -41,7 +41,7 @@ Example subsystem configuration - subsystem root, and identifier contents respec
 
 Used for distribution of a module or set of modules.
 
-Subsystems are a collection of modules - they are indicated by the configuration component '.eqs' at the root of subsystem - name defines a unique identifier for subsystem, and indicates that all modules from the root down, excluding modules that are parts of other subsystems, are part of this subsystem. When compiler is run, all subsystems in project are registered recursivly from the top down. Subsystems installed on system are detected, and made available to project.
+Subsystems are a collection of modules - they are indicated by the configuration component '.eqs' at the root of subsystem - name defines a unique identifier for subsystem, and indicates that all modules from the root down, excluding modules that are parts of other subsystems, are part of this subsystem. When compiler is run, all subsystems in project are registered recursively from the top down. Subsystems installed on system are detected, and made available to project.
 
 Subsystems are tagged with a randomly generated identifier of 20 characters containing only letters and/or numbers - this identifier disambiguates the includes of one module from another, even if headers have the same names.
 
