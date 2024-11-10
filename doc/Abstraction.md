@@ -31,7 +31,8 @@ for locations - may be omitted using a (') as last member of reader or writer.
     Declaration:
     ('S, 'I:A, ('EA:B,'EB:C), 'IA:D, 'IB:E)
 
-Used to express concurrency and processing of user requests.
+Acts as a wrapper for an intersection - used to express concurrency and processing of user requests. Services accept words at a time of a particular category as arguments, and may produce effects outside program, and/or export data to location within program that is
+output by intersection. A service's intersection is run for each word given to service.
 
 Has export labels for giving information to other services, and import labels for getting information from other services. Export labels must be specified with a default category
 value if they are being created inline.
@@ -39,7 +40,7 @@ value if they are being created inline.
 A service may write to a new location label within it's intersection - label must be constrained to a specific category signature, just like imports and exports. In this case,
 location is local to service, and may be referred to in subsequent runs of the service.
 
-Only synchronous writing, and asynchronous reading is allowed - requests to services are given through a write label (value given to 'I' in service reference, in this case), which allows a service to accept a single category as an input word, processing one word at a time.
+Only synchronous writing to, and asynchronous reading from a service is allowed - requests to services are given through a write label (value given to 'I' in service reference, in this case), which allows a service to accept a single category as an input word, processing one word at a time.
 
 Input requests and export read requests are processed in order they are received.
 

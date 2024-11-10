@@ -4,6 +4,11 @@
 
 Used to pose questions about what certain structures are.
 
+The way intersections are processed differs depending on what is being intersected -
+for example, sequences are compared side by side, and order and size of sequence
+affects whether intersection yields a contradiction or a solution. For collections,
+each item in collection checked once against every item on other side of intersection.
+
 Generates a single category that contains only structures all members of
 intersection have in common - it is defined for union, sequence, collection, sum, and product categories.
 
@@ -17,7 +22,7 @@ An unevaluated intersection may be created in cases where an intersection cannot
 
 If left-hand side of application is an instance of right-hand side, evaluates to left-hand side, otherwise raises a contradiction.
 
-Applications can only be used in test contexts - for assertions in tests.
+Applications can only be used in test contexts - used for assertions in tests.
 
 #### 1.3 Sum
     'a + 'b
@@ -39,7 +44,7 @@ Multiplies two or more numbers or number categories, generates sequence chain fo
 #### 1.5 Quotient
     'a / 'b
 
-Used to create fractions.
+Used to divide numbers, or to create fractions.
 
 Divides two or more numbers or number categories if output would be a whole
 number - otherwise, creates a fraction.

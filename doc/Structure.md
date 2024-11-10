@@ -3,7 +3,7 @@
     'A
     'A['B]
 
-Used to give names to structure categories so they can be expanded elsewhere - can only be used to store structure categories. Labels may be used to create structure category definitions - they must begin with an uppercase letter.
+Used to give names to structure categories so they can be expanded elsewhere, or as a placeholder for a structure that is unknown, but may be deduced from the context of an intersection - can only be used to store structure categories. Labels may be used to create structure category definitions - they must begin with an uppercase letter.
 
 Labels may also be anonymous - this is denoted:
 
@@ -20,7 +20,7 @@ structure from categories - for example:
 
 In this example, capture extracts value of 'B'.
 
-Labels are also used as placeholders for locations, which may be written to in order to send output outside of program, and read from in order to continuously draw categories into a service from outside of program, or to enable one service to read from another service's exports.
+Labels are also used as placeholders for locations, which may be written to in order to send output outside of program and/or store categories locally, and read from in order to continuously or non-continuously draw categories into a service from outside of program, or to enable one service to read from another service's exports.
 
 #### 1.2 Variable
     'a
@@ -87,7 +87,7 @@ in order to form a new one.
     'a C 'b C 'c
     'a C,
 
-Defines an unordered collection of structures. Items in a collection may be
+Defines an unordered collection of structures. Items in a collection are
 rearranged to fit inside another category when intersected - generates unions
 in cases where two or more possible items may fit in a specific location.
 
