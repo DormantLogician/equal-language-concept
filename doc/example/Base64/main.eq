@@ -7,7 +7,7 @@
 """
 Encoder/decoder command line application.
 """
-('CommandLine, 'In:InputWord, ('Out:InputWord, 'Err:((B64):Bit(8),)), (),
+('CommandLine, ('In:InputWord), ('Out:InputWord, 'Err:((B64):Bit(8),)), (),
  (''' O 'In O 'Command) &
   (("-d" O 'A:(B64):EncodedWord O <('Out, 'A, '')) V
   ("" O  O 'B:(B64):PlaintextWord O <('Out, 'B, '')) V
