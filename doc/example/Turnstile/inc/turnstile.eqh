@@ -1,0 +1,10 @@
+(Turnstile)
+
+('State: 'Locked(3) V 'Unlocked(2))
+
+"""
+Turnstile service.
+"""
+(Turnstile, 'Command:('InsertCoin(4) V 'Push(5)), (), ('Output:State->'Locked(3)))
+
+

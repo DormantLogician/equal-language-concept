@@ -26,19 +26,18 @@ for locations - may be omitted using a (') as last member of reader or writer.
 
 #### 1.3 Service
     Definition:
-    ('S, 'I:A, ('EA:B->'D1,'EB:C->'D2), ('IA:D, 'IB:E), 'I & 'F)
+    ('S, 'I:A, ('EA:B->'D1,'EB:C->'D2), ('IA:D, 'IB:E), 'CurrentState, 'NextState)
 
     Declaration:
     ('S, 'I:A, ('EA:B,'EB:C), 'IA:D, 'IB:E)
 
-Acts as a wrapper for an intersection - used to express concurrency and processing of user requests. Services accept words at a time of a particular category as arguments, and may produce effects outside program, and/or export data to location within program that is
-output by intersection. A service's intersection is run for each word given to service.
+Acts as a wrapper for current state information, and how that state and input to service affect new state by using tagged unions - used to express concurrency and processing of user requests. Services accept words at a time of a particular category as arguments, and may produce effects outside program, and/or export data to location within program. Services are run for each word they are given.
+
+'NextState' must be a subset of 'CurrentState', and becomes 'CurrentState' in next
+run of service.
 
 Has export labels for giving information to other services, and import labels for getting information from other services. Export labels must be specified with a default category
 value if they are being created inline.
-
-A service may write to a new location label within it's intersection - label must be constrained to a specific category signature, just like imports and exports. In this case,
-location is local to service, and may be referred to in subsequent runs of the service.
 
 Only synchronous writing to, and asynchronous reading from a service is allowed - requests to services are given through a write label (value given to 'I' in service reference, in this case), which allows a service to accept a single category as an input word, processing one word at a time.
 
