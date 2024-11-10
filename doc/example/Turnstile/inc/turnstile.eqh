@@ -4,6 +4,10 @@
 
 """
 Turnstile service.
+
+'InsertCoin(4) - Insert coin into turnstile to unlock.
+'Push(5) - Push turnstile in order to walk through - locks again behind you for next person.
+'Output - Current state of turnstile - either locked or unlocked. Always initializes turnstile in locked state.
 """
 (Turnstile, 'Command:('InsertCoin(4) V 'Push(5)), (), ('Output:State->'Locked(3)))
 
