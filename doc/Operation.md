@@ -60,4 +60,4 @@ Indicates that category or service with specified label is to be instantiated at
 
 In this example, first item in category is an anonymous label.
 
-Service references must be called with a write location - this label may be written to in order to make request to service.
+Service references must be called with a write location - this label may be intersected with in order to make request to service.

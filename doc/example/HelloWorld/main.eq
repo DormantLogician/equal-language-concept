@@ -1,9 +1,11 @@
 (HelloWorld)
 
-('CommandLine, ('Input), (StdOut), (),
-    <('StdOut, "Hello world!", '') & 'A
+('CommandLine, ('Input), ('Output), (),
+    'Output & "Hello world!"
 )
 
-(CommandLine, ('''), (), ())
+(CommandLine, ('Input), (StdOut), ())
+
+('Input & ''')
 
 

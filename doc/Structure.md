@@ -21,7 +21,7 @@ structure from categories - for example:
 
 In this example, capture extracts value of 'B'.
 
-Labels are also used as placeholders for locations, which may be written to in order to send output outside of program and/or store categories locally, and read from in order to continuously or non-continuously draw categories into a service from outside of program, or to enable one service to read from another service's exports.
+Labels are also used as placeholders for locations, which may be intersected with in order to send output outside of program and/or store categories locally, and read from in order to continuously or non-continuously draw categories into a service from outside of program, or to enable one service to read from another service's exports.
 
 Categories may expand themselves recursively within same category using syntax with
 caret (^) symbol - for example:

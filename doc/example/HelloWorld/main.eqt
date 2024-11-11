@@ -1,0 +1,9 @@
+('HelloWorld)
+
+(CommandLine, ('Input), (StdOut), ())
+
+('Input & ''')
+
+StdOut -> "Hello world!"
+
+
