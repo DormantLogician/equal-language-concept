@@ -11,10 +11,10 @@ Indicates that structures in category are to be removed from any intersection th
 
 #### 1.2 Service
     Definition:
-    ('S, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D, 'Import2:E), 'CurrentState, 'NextState)
+    ('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D, 'Import2:E), 'CurrentState, 'NextState)
 
     Declaration:
-    ('S, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D, 'Import2:E))
+    ('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D, 'Import2:E))
 
 Acts as a wrapper for current state information, and how that state and input to service affect new state by using tagged unions - used to express concurrency and processing of user requests. Services accept words at a time of a particular category as arguments, and may produce effects outside program, and/or export data to location within program. Services are run for each word they are given.
 
@@ -26,7 +26,7 @@ Exports may reference items in 'NextState' in order to deduce what is exported.
 Has export labels for giving information to other services, and import labels for getting information from other services. Export labels must be specified with a default category
 value if they are being created inline.
 
-Only synchronous writing to, and asynchronous reading from a service is allowed - requests to services are given by intersecting with a write label (value given to 'I' in service reference, in this case), which allows a service to accept a category as an input word, processing one word at a time.
+Only synchronous writing to, and asynchronous reading from a service is allowed - requests to services are given by intersecting with a write label (value given to 'Input' in service reference, in this case), which allows a service to accept a category as an input word, processing one word at a time.
 
 Input requests and export read requests are processed in order they are received.
 

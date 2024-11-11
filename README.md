@@ -16,12 +16,10 @@ A basic program in written in language is expressed:
 
     'A & 'B
 
-In this example, intersection of 'A and 'B categories removes differences between them, producing a third category type representing only structures they have in common. Intersections enable reduction of a search space in order to find specific structures (output of intersection) within that space. If an output can be produced, intersection will output a solution if there is one - otherwise, it will output a contradiction.
+In this example, intersection of 'A and 'B categories removes differences between them, producing a third category type representing only structures they have in common. Intersections enable reduction of a search space in order to find specific structures (output of intersection) within that space. If an output can be produced, intersection will output a solution if there is one - otherwise, it will output a contradiction (signaling failure to find a solution).
 
 ### 1.4 Example
-The following example defines and uses a generic 'Rule' category to sort integers. Input collection is reordered by language to fit inside 'Rule', which places each item in each
-position where it can possibly go - in this case, each item is placed at a position that
-makes collection sorted.
+The following example defines and uses a generic 'Rule' category to sort integers (numbers that follow a specific mathematical pattern). Input collection is reordered by language to fit inside 'Rule', which places each item in each position where it can possibly go - in this case, each item is placed at a position that makes collection sorted.
 
     ('Gte['a], 'a V ('a + (1 +,)))
     ('Rule['a['b]], ('['c], 't:'a['c] O, 't))

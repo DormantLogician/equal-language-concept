@@ -140,14 +140,14 @@ sequence (denoted 'O'), or collection (denoted 'C') categories.
 
 Number categories that are infinitely sized must contain only one number or number category followed by an infinite sum or product so they can be evaluated.
 
-Any infinitely-sized category may have a fourth item that denotes expansion of category to nth structure/number in pattern.
+Any infinitely-sized category may have a fourth item that denotes expansion of category to n'th structure/number in pattern.
 
 Category definitions may be overloaded, like so:
 
     (+'A['a], 1 O 2 O 'a)
     (+'A['a O 'b], 'a O 'b)
 
-In this example, label 'A' may be instantiated with either one number, or two numbers - each has a different category body.
+In this example, label 'A' may be created with either one number, or two numbers - each has a different category body.
 
 If it is unclear which overload must be selected based on argument given to capture,
 a union between all overloaded categories instantiated with argument is

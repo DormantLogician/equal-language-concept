@@ -9,8 +9,7 @@ for example, sequences are compared side by side, and order and size of sequence
 affects whether intersection yields a contradiction or a solution. For collections,
 each item in collection checked once against every item on other side of intersection.
 
-Generates a single category that contains only structures all members of
-intersection have in common - it is defined for union, sequence, collection, sum, and product categories.
+Generates a single category that contains only structures all members of intersection have in common - it is defined for union, sequence, collection, sum, and product categories.
 
 Intersection of sum and/or product categories will produce a third category that includes
 only numbers all intersected categories have in common.
@@ -54,7 +53,7 @@ number - otherwise, creates a fraction.
     A['B]
     (A['B], 'Input, ('Export,'Export2), ('Import, 'Import2))
 
-Indicates that category or service with specified label is to be instantiated at position - this creates an anonymous version of that category or service in the form of:
+Indicates that category or service with specified label is to be expanded at position - this creates an anonymous version of that category or service in the form of:
 
     (''['A], 'B O 'C)
 

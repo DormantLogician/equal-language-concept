@@ -4,14 +4,13 @@ Language would have ability to explicitly express algorithms that are designed t
 ### 2. Code reification
 Adjustable optimization for performance, memory usage, binary size, power efficiency, and/or ABI stability.
 
-Supports optimizing specific code to prioritize one or more non-functional properties. Machine code can be generated that has the following traits:
+Supports optimizing specific code to prioritize one or more non-functional (not related to correctness of output) properties. Machine code can be generated that has the following traits:
 
 - Data-agnostic performance        (Execution time not affected by input data - for prevention of side-channel attacks)
 
-Language is both similar to an array programming language, and is not primarily algorithm-based, so this feature may be required in order to meet specific non-functional requirements.
+Language is not primarily algorithm-based, so this feature may be required in order to meet specific non-functional requirements.
 
 ### 3. C/C++ interoperability
-
 Ability to import and use C and/or C++ headers as modules, and use Equal modules as C or C++ headers.
 
 ### 4. Application binary interface code operations
