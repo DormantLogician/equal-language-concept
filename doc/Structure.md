@@ -105,7 +105,7 @@ in cases where two or more possible items may fit in a specific location.
     ('A['a], 1 O 2 O, 'a)
 
     Definition (Number - stops after specific number of items):
-    ('Pow['n O 'p], 'n *, 'n, 'p)
+    ('Pow['number O 'power], 'number *, 'number, 'power)
 
     Declaration:
     ('A['a], Constraint)
