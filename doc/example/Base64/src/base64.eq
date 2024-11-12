@@ -34,13 +34,18 @@ Pad)
 ('MappedEncodedWord, MappedAlphabetLetter O
                      MappedAlphabetLetter O
                      (('A)MappedAlphabetLetter V ('B)Pad) O
-                     ((': 'A)MappedAlphabetLetter V (':'B V 'A)Pad))
+                     ((': 'A)MappedAlphabetLetter V (': 'B V 'A)Pad))
 
-('Encoded['P:PlaintextWord], Strip[Regroup['P]])
+('Encoded['P:PlaintextWord], Unmapped[Regroup['P]])
+
+"""
+Adds map to plaintext back onto an encoded word.
+"""
+('Remapped['E:EncodedWord], (''[Unmapped['P:PlaintextWord]], 'P) & MappedEncodedWord & 'E)
 
 """
 In decoder, we deduce what plain text is based on description of encoded word.
 """
-('Decoded['E:EncodedWord], Strip['[Regroup['P:PlaintextWord] & (Strip['Remapped] & 'E, 'Remapped) & MappedEncodedWord], 'P])
+('Decoded['E:EncodedWord], Unmapped[''[Regroup['P:PlaintextWord] & 'Remapped['E]], 'P])
 
 

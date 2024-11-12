@@ -95,22 +95,18 @@ to fit into correct positions in 'MappedEncodedWord' based on plain text letters
 """
 Intended to remove index from a base64 word, leaving only letters.
 """
-(+'Strip[(('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'A) O 
-         (('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'B) O 
-         (('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'C) O 
-         (('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'D)],
-'A O 'B O 'C O 'D)
+(+'Unmapped[('' O 'A) O ('' O 'B) O ('' O 'C) O ('' O 'D)], 'A O 'B O 'C O 'D)
 
 """
 Intended to remove the index from a single base64 alphabet letter, leaving only
 the letter.
 """
-(+'Strip[('':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit O '':Bit) O 'A], 'A)
+(+'Unmapped['' O 'A], 'A)
 
 """
 A base64 alphabet letter without the index.
 """
-('AlphabetLetter, Strip[MappedAlphabetLetter])
+('AlphabetLetter, Unmapped[MappedAlphabetLetter])
 
 """
 An encoded base64 word.
