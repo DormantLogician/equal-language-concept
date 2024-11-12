@@ -73,12 +73,6 @@ Condition tags may be related by either intersection or union - for example:
 
 'e' is only active member of its union if both 'a' and 'c' are active members of their unions.
 
-Tags may be used to indicate that two union members in same category are allowed to be active at same time despite the default exclusive-or relationship - for example:
-
-    (('t)'e V ('u: 't)f)
-
-Both 'e' and 'f' may be active at same time.
-
 Union tags may be anonymous in cases where tag name is unused - for example:
 
     (('t)'a V 'b) O
