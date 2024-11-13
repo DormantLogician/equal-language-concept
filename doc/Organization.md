@@ -27,7 +27,7 @@
     (A:B):C
 
     Service label reference bound by module alias:
-    (A:B):(C['D], 'Input, ('Export,'Export2), ('Import, 'Import2))
+    (A:B):(C['D], 'Input, ('Export,'Export2), ('Import,'Import2))
 
 Used to organize code into sections.
 

@@ -51,7 +51,7 @@ number - otherwise, creates a fraction.
 #### 1.6 Reference
     A
     A['B]
-    (A['B], 'Input, ('Export,'Export2), ('Import, 'Import2))
+    (A['B], 'Input, ('Export,'Export2), ('Import,'Import2))
 
 Indicates that category or service with specified label is to be expanded at position - this creates an anonymous version of that category or service in the form of:
 
