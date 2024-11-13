@@ -28,8 +28,6 @@ value if they are being created inline.
 
 Only synchronous writing to, and asynchronous reading from a service is allowed - requests to services are given by intersecting with a write label (value given to 'Input' in service reference, in this case), which allows a service to accept a category as an input word, processing one word at a time.
 
-Input requests and export read requests are processed in order they are received.
-
-All service's users are given a fair opportunity to have their read and write requests fulfilled - this is achieved by serving older users first, and having newer users wait until older ones are done being served. Sequences of read requests in queue are combined, and run asynchronously - write requests are processed one at a time.
+Input requests and export read requests are processed in order they are received. Sequences of read requests in queue are combined, and run asynchronously - write requests are processed one at a time.
 
 A 'main' location is defined that that contains a delimited sequence of 8-bit sequences (strings) supplied by user on command line - this label is denoted (''').

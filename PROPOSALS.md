@@ -6,11 +6,17 @@ Adjustable optimization for performance, memory usage, binary size, power effici
 
 Supports optimizing specific code to prioritize one or more non-functional (not related to correctness of output) properties. Machine code can be generated that has the following traits:
 
-- Data-agnostic performance        (Execution time not affected by input data - for prevention of side-channel attacks)
+- Data-agnostic performance     (Execution time not affected by input data - for prevention of side-channel attacks)
+
+The following service statistics are tracked - if they are high for a specific service, it increases performance of that service (limited by available resources):
+
+- Input request cost    (Measurement of how expensive it is to fulfill a request for a particular service)
+- Business              (Average rate new requests are being made to a service)
+- Priority percentage   (Offset that prioritizes some services receiving more resources than others - set manually)
 
 Language is not primarily algorithm-based, so this feature may be required in order to meet specific non-functional requirements.
 
-### 3. C/C++ interoperability
+### 3. C/C++ compatibility
 Ability to import and use C and/or C++ headers as modules, and use Equal modules as C or C++ headers.
 
 ### 4. Application binary interface code operations
