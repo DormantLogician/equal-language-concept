@@ -2,11 +2,7 @@
 Language would have ability to explicitly express algorithms that are designed to stop running, but cannot be proven to, in attempt to make language turing-complete, if it isn't already.
 
 ### 2. Code reification
-Adjustable optimization for performance, memory usage, binary size, power efficiency, and/or ABI stability.
-
-Supports optimizing specific code to prioritize one or more non-functional (not related to correctness of output) properties. Machine code can be generated that has the following traits:
-
-- Data-agnostic performance     (Execution time not affected by input data - for prevention of side-channel attacks)
+Adjustable tailoring for performance, memory usage, binary size, power efficiency, ABI stability, and other non-functional (not related to correctness) properties.
 
 The following service statistics are tracked - if they are high for a specific service, it increases performance of that service (limited by available resources):
 
