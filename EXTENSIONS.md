@@ -21,10 +21,12 @@ A sequence of 8-bit characters - 'A(2) represents '0', and 'A(3) represents '1'.
 ### 3. Fallbacks and Header groups
 #### 3.1 Fallbacks
     First implementation:
-    ('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D, 'Import2:E), 'CurrentState, 'NextState)
+        ('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D,
+    'Import2:E), 'CurrentState, 'NextState)
 
     Second implementation.
-    ('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D, 'Import2:E), 'CurrentState2, 'NextState2)
+        ('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D,
+    'Import2:E), 'CurrentState2, 'NextState2)
 
 Category and service implementations can be overloaded to provide a
 fallback in case certain language features are missing. In the case
@@ -36,12 +38,15 @@ does, and uses that one instead.
     ('Unix: "first.eqh","second.eqh")
 
     Tagged declaration:
-    ('Unix,'Windows):('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D, 'Import2:E))
+        ('Unix,'Windows):('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2),
+    ('Import:D, 'Import2:E))
 
     First tag definition:
-    ('Unix):('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D, 'Import2:E), 'CurrentState, 'NextState)
+        ('Unix):('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2),
+    ('Import:D,'Import2:E), 'CurrentState, 'NextState)
 
     Second tag definition.
-    ('Windows):('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D, 'Import2:E), 'CurrentState2, 'NextState2)
+        ('Windows):('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2),
+    ('Import:D, 'Import2:E), 'CurrentState2, 'NextState2)
 
 Like fallbacks, but declarations and definitions must be tagged with a group of headers that can be used to select implementations depending on platform-dependent features. If multiple header group tags on a declaration or definition are possible to select, the first one is always selected over the others. There is one tagged implementation for each header group tag attached to its declaration. Header group definitions are not exported from headers.

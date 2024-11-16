@@ -5,16 +5,18 @@
 Used to express that output category of an intersection is not an instance of the specified category. Some categories cannot be expressed without negation, such as
 a prime number category:
 
-('Prime, 'Gte[2] & ~'Composite)
+('Prime, Gte[2] & ~Composite)
 
 Indicates that structures in category are to be removed from any intersection they are part of.
 
 #### 1.2 Service
     Definition:
-    ('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D, 'Import2:E), 'CurrentState, 'NextState)
+        ('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D,
+    'Import2:E), 'CurrentState, 'NextState)
 
     Declaration:
-    ('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D, 'Import2:E))
+        ('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D,
+    'Import2:E))
 
 Acts as a wrapper for current state information, and how that state and input to service affect new state by using tagged unions - used to express concurrency and processing of user requests. Services accept words at a time of a particular category as arguments, and may produce effects outside program, and/or export data to location within program. Services are run for each word they are given.
 
