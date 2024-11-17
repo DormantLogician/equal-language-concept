@@ -21,10 +21,12 @@ In this example, intersection of 'A and 'B categories removes differences betwee
 ### 1.4 Example
 The following example defines and uses a generic 'Rule' category to sort integers (numbers that follow a specific mathematical pattern). Input collection is reordered by language to fit inside 'Rule', which places each item in each position where it can possibly go - in this case, each item is placed at a position that makes collection sorted.
 
+Category definitions:
+
     ('Gte['a], 'a V ('a + (1 +,)))
     ('Rule['a['b]], ('['c], 't:'a['c] O, 't))
 
-Program is the following:
+Intersection is the following:
 
     (2 C 3 C 1) & Rule[Gte['a]]
 
