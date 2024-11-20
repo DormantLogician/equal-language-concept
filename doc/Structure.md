@@ -58,7 +58,7 @@ rearranged to fit inside another category when intersected - generates unions
 in cases where two or more possible items may fit in a specific location.
 
 #### 1.3 Sum
-    'A + 'B
+    'A + 'B + 'C
     2 +,
 
 Used to define a sum category, where each item is concatenated.

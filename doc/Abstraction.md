@@ -1,12 +1,5 @@
 ### 1. Abstractions
-#### 1.1 Negation
-    ~'Name
-
-Used to express that output category of an intersection is not an instance of the specified category.
-
-Indicates that structures in category are to be removed from any intersection they are part of.
-
-#### 1.2 Service
+#### 1.1 Service
     Definition:
         ('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D,
     'Import2:E), 'CurrentState, 'NextState)
