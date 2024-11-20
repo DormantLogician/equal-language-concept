@@ -7,6 +7,6 @@
 
 (CommandLine, ('Input), (StdOut), ())
 
-(''' & 'Input)
+(' & 'Input)
 
 
