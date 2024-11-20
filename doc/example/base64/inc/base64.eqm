@@ -4,15 +4,15 @@ Base64 encoder and decoder implementation example.
 (B64)
 
 """
-'T(2) is '0' and 'T(3) is '1'.
+1 is '0' and 2 is '1'.
 """
-('Bit, 'T(2) V 'T(3))
+('Bit, 1 V 2)
 
 """
 The pad character - index is unused by both encoder and decoder, since it is not
 part of base64 alphabet.
 """
-('Pad, ('(3) O '(3) O '(3) O '(3) O '(3) O '(3) O '(3) O '(3)) O "=")
+('Pad, <64 O "=")
 
 """
 A complete or partial plain text input to encoder.
