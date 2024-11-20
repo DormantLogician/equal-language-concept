@@ -2,7 +2,6 @@
 #### 1.1 Variable
     'A
     'A['B]
-    ^['B]
 
 Used to give names to structure categories so they can be expanded elsewhere, or as a placeholder for a structure that is unknown, but may be deduced from the context of an intersection - can only be used to store structure categories. Variables may be used to create structure category definitions - they must begin with an uppercase letter.
 
@@ -22,14 +21,6 @@ structure from categories - for example:
 In this example, capture extracts value of 'B'.
 
 Variables are also used as placeholders for locations, which may be intersected with in order to send output outside of program and/or store categories locally, and/or read from in order to continuously or non-continuously draw categories into a service from outside of program or to enable one service to read from another service's exports.
-
-Categories may expand themselves recursively within same category using syntax with
-caret (^) symbol - for example:
-
-    ('A['B], 'B O ^['B] O 'D)
-
-In this example, category 'A' expands itself in middle of own body, making this category
-into a tree.
 
 #### 1.2 Quantity
     2
@@ -118,3 +109,11 @@ Inline categories may be tagged with a variable, like so:
 In this example, the same category may be referenced in a different location
 in current structure. When category assigned to 'A' changes as result of
 an intersection, it is changed in all other positions 'A' is used.
+
+Categories may expand themselves recursively within same category using syntax with
+caret (^) symbol - for example:
+
+    ('A['B], 'B O ^['B] O 'D)
+
+In this example, category 'A' expands itself in middle of own body, making this category
+into a tree.
