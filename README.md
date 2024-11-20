@@ -23,12 +23,12 @@ The following example defines and uses a generic 'Rule' category to sort integer
 
 Category definitions:
 
-    ('Gte['a], 'a V ('a + (1 +,)))
-    ('Rule['a['b]], ('['c], 't:'a['c] O, 't))
+    ('Gte['A], 'A V ('A + (1 +,)))
+    ('Rule['A[']], ('['C]['], 'T:'A['C] O, 'T))
 
 Intersection is the following:
 
-    (2 C 3 C 1) & Rule[Gte['a]]
+    (2 C 3 C 1) & Rule[Gte[']]
 
 Output is the following:
 

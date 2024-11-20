@@ -1,22 +1,21 @@
 ﻿### 1. De-structuring/restructuring integers
     De-structure integer:
-    <'n
+    <'N
 
     Restructure integer:
-    >'n
+    >'N
 
 Sometimes, it is necessary to interpret an integer as a sequence of bits or
 vise-versa.
 
-De-structuring an integer converts it into a sequence of bits representing integer value, where 'A(2) represents '0' and 'A(3) represents '1'. A minimum of 8 bits are used to
-represent integer, and maximum number of bits is arbitrary.
+De-structuring an integer converts it into a sequence of bits representing integer value, where 1 represents '0' and 2 represents '1'. A minimum of 8 bits are used to represent integer, and maximum number of bits is arbitrary.
 
 Restructuring converts a sequence of bits into an integer.
 
 ### 2. String
     "Hello, world!"
 
-A sequence of 8-bit characters - 'A(2) represents '0', and 'A(3) represents '1'.
+A sequence of 8-bit characters - 1 represents '0', and 2 represents '1'.
 
 ### 3. Fallbacks and Header groups
 #### 3.1 Fallbacks

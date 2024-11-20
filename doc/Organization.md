@@ -23,10 +23,10 @@
     Module definition or alias:
     (A:B)
 
-    Category label reference bound by module alias:
+    Category variable reference bound by module alias:
     (A:B):C
 
-    Service label reference bound by module alias:
+    Service variable reference bound by module alias:
     (A:B):(C['D], 'Input, ('Export,'Export2), ('Import,'Import2))
 
 Used to organize code into sections.
