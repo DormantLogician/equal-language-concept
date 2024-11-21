@@ -15,7 +15,7 @@ trivial.
 ((1 O 1 O 'A O 'B O 'C O 'D O 'E O 'F) O AlphabetLetter) C 
 ((1 O 1 O 'G O 'H O 'I O 'J O 'K O 'L) O AlphabetLetter) C 
 ((1 O 1 O 'M O 'N O 'O O 'P O 'Q O 'R) O AlphabetLetter) C 
-(' O ((1 O 1 O 'S O 'T O 'U O 'V O 'W O 'X) O AlphabetLetter)))
+((1 O 1 O 'S O 'T O 'U O 'V O 'W O 'X) O AlphabetLetter))
 
 
 (+'Regroup[('A:Bit O 'B:Bit O 'C:Bit O 'D:Bit O 'E:Bit O 'F:Bit O 'G:Bit O 'H:Bit) O 
@@ -23,18 +23,18 @@ trivial.
 ((1 O 1 O 'A O 'B O 'C O 'D O 'E O 'F) O AlphabetLetter) C 
 ((1 O 1 O 'G O 'H O 'I O 'J O 'K O 'L) O AlphabetLetter) C 
 ((1 O 1 O 'M O 'N O 'O O 'P O 1 O 1) O AlphabetLetter) C 
-(' O Pad))
+Pad)
 
 (+'Regroup['A:Bit O 'B:Bit O 'C:Bit O 'D:Bit O 'E:Bit O 'F:Bit O 'G:Bit O 'H:Bit],
 ((1 O 1 O 'A O 'B O 'C O 'D O 'E O 'F) O AlphabetLetter) C 
 ((1 O 1 O 'G O 'H O 1 O 1 O 1 O 1) O AlphabetLetter) C 
 Pad C 
-(' O Pad))
+Pad)
 
 ('MappedEncodedWord, MappedAlphabetLetter O
                      MappedAlphabetLetter O
-                     ('A:MappedAlphabetLetter V 'B:Pad) O
-                     (('A O MappedAlphabetLetter) V (('B V 'A) O Pad)))
+                     (('A)MappedAlphabetLetter V ('B)Pad) O 
+                     ((': 'A)MappedAlphabetLetter V (': 'A V 'B)Pad)
 
 """
 Adds map to plaintext back onto an encoded word.

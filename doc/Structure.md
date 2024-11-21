@@ -33,6 +33,15 @@ Represents a positive integer.
 
 Defines a category that represents more than one possible structure. Unions define an exclusive-or (XOR) relationship between union members.
 
+Unions may be tagged in order to enable representation of more complex structures
+by using conditions - for example:
+
+((('T)'A V 'B) O (('U: 'T)'C V 'D))
+
+In this example, 'C' may only be active member of its union if 'A' is active member of its union. Tags may also be anonymous in cases where they are not used, like so:
+
+((('T)'A V 'B) O ((': 'T)'C V 'D))
+
 #### 1.4 Sequence
     'A O 'B O 'C
     'A O,
