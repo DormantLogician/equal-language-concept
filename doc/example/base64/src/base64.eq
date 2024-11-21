@@ -15,7 +15,7 @@ trivial.
 ((1 O 1 O 'A O 'B O 'C O 'D O 'E O 'F) O AlphabetLetter) C 
 ((1 O 1 O 'G O 'H O 'I O 'J O 'K O 'L) O AlphabetLetter) C 
 ((1 O 1 O 'M O 'N O 'O O 'P O 'Q O 'R) O AlphabetLetter) C 
-((1 O 1 O 'S O 'T O 'U O 'V O 'W O 'X) O AlphabetLetter))
+(' O ((1 O 1 O 'S O 'T O 'U O 'V O 'W O 'X) O AlphabetLetter)))
 
 
 (+'Regroup[('A:Bit O 'B:Bit O 'C:Bit O 'D:Bit O 'E:Bit O 'F:Bit O 'G:Bit O 'H:Bit) O 
@@ -23,25 +23,25 @@ trivial.
 ((1 O 1 O 'A O 'B O 'C O 'D O 'E O 'F) O AlphabetLetter) C 
 ((1 O 1 O 'G O 'H O 'I O 'J O 'K O 'L) O AlphabetLetter) C 
 ((1 O 1 O 'M O 'N O 'O O 'P O 1 O 1) O AlphabetLetter) C 
-Pad)
+(' O Pad))
 
 (+'Regroup['A:Bit O 'B:Bit O 'C:Bit O 'D:Bit O 'E:Bit O 'F:Bit O 'G:Bit O 'H:Bit],
 ((1 O 1 O 'A O 'B O 'C O 'D O 'E O 'F) O AlphabetLetter) C 
 ((1 O 1 O 'G O 'H O 1 O 1 O 1 O 1) O AlphabetLetter) C 
 Pad C 
-Pad)
+(' O Pad))
 
 ('MappedEncodedWord, MappedAlphabetLetter O
                      MappedAlphabetLetter O
-                     (('A)MappedAlphabetLetter V ('B)Pad) O
-                     ((': 'A)MappedAlphabetLetter V (': 'B V 'A)Pad))
-
-('Encoded['P:PlaintextWord], Unmapped[Regroup['P]])
+                     ('A:MappedAlphabetLetter V 'B:Pad) O
+                     (('A O MappedAlphabetLetter) V (('B V 'A) O Pad)))
 
 """
 Adds map to plaintext back onto an encoded word.
 """
 ('Remapped['E:EncodedWord], ('[Unmapped['P:PlaintextWord]], 'P) & MappedEncodedWord & 'E)
+
+('Encoded['P:PlaintextWord], Unmapped[Regroup['P]])
 
 """
 In decoder, we deduce what plain text is based on description of encoded word.

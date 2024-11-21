@@ -1,6 +1,6 @@
 (B64)
 
-Encode[PlaintextWord] -> EncodedWord
+Encode[PlaintextWord] -> Unmapped[EncodedWord]
 
 Decode[EncodedWord] -> PlaintextWord
 

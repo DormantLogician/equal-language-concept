@@ -1,6 +1,6 @@
 (Turnstile)
 
-('State: 'Locked(3) V 'Unlocked(2))
+('State: 'Locked(2) V 'Unlocked(3))
 
 """
 Turnstile service.
@@ -9,6 +9,6 @@ Turnstile service.
 'Push(5) - Push turnstile in order to walk through - locks again behind you for next person.
 'Output - Current state of turnstile - either locked or unlocked. Always initializes turnstile in locked state.
 """
-(Turnstile, 'Command:('InsertCoin(4) V 'Push(5)), (), ('Output:State->'Locked(3)))
+(Turnstile, 'Command:('InsertCoin(4) V 'Push(5)), (), ('Output:State->'Locked(2)))
 
 

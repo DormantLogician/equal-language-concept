@@ -95,6 +95,7 @@ to fit into correct positions in 'MappedEncodedWord' based on plain text letters
 """
 Intended to remove index from a base64 word, leaving only letters.
 """
+(+'Unmapped[(' O 'A) O (' O 'B) O (' O 'C) O (' O (' O 'D))], 'A O 'B O 'C O 'D)
 (+'Unmapped[(' O 'A) O (' O 'B) O (' O 'C) O (' O 'D)], 'A O 'B O 'C O 'D)
 
 """
@@ -113,8 +114,8 @@ An encoded base64 word.
 """
 ('EncodedWord, AlphabetLetter O
                AlphabetLetter O
-               (('A)AlphabetLetter V ('B)Pad) O 
-               ((': 'A)AlphabetLetter V (': 'B V 'A)Pad))
+               ('A:AlphabetLetter V 'B:Pad) O 
+               (('A O AlphabetLetter) V (('B V 'A) O Pad))
 
 """
 Base64 encoder.
@@ -122,7 +123,7 @@ Base64 encoder.
 A constraint (EncodedWord) is used here instead of the body in order to hide
 implementation of this category from user.
 """
-('Encoded[PlaintextWord], EncodedWord)
+('Encoded[PlaintextWord], Unmapped[EncodedWord])
 
 """
 Base64 decoder.
