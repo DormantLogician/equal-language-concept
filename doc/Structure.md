@@ -42,6 +42,12 @@ In this example, 'C' may only be active member of its union if 'A' is active mem
 
 ((('T)'A V 'B) O ((': 'T)'C V 'D))
 
+Intersection and union operators may be used in a tag as 'and' and 'or' logical operators respectively - for example:
+
+((('T)'A V 'B) O (('U: 'T)'C V ('V)'D) O (('T V 'V)'E V ('T & 'V)'F))
+
+In this example, 'E' is only active member of its union if either 'A' or 'D' are active members of their unions. 'F' is only active member of its union if both 'A' and 'D' are active members of their unions.
+
 #### 1.4 Sequence
     'A O 'B O 'C
     'A O,
