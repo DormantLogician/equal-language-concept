@@ -4,18 +4,18 @@
 
 ('' & "")
 (StdIn & (B64):PlaintextWord)
-StdOut -> ("" O (B64):EncodedWord)
+StdOut -> ((B64):EncodedWord O "")
 
 ('' & "-d")
 (StdIn & (B64):EncodedWord)
-StdOut -> ("-d" O (B64):PlaintextWord)
+StdOut -> ((B64):PlaintextWord O "-d")
 
 (StdIn & ~(B64):EncodedWord)
-StdOut -> ("-d" O ~(B64):EncodedWord)
-StdErr -> ("-d" O ~(B64):EncodedWord O "Error - input is not a base64-encoded string.")
+StdOut -> (~(B64):EncodedWord O "-d")
+StdErr -> ( ~(B64):EncodedWord O "-d" O "Error - input is not a base64-encoded string.")
 
 ('' & (~"" & ~"-d"))
-StdOut -> ((~"" & ~"-d") O <0)
+StdOut -> (<0 O (~"" & ~"-d"))
 StdErr -> ((~"" & ~"-d") O "Error - unknown command given to program.")
 
 
