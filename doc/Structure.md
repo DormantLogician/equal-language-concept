@@ -1,75 +1,5 @@
 ﻿### 1. Structures
-#### 1.1 Variable
-    'A
-    'A['B]
-
-Used to give names to structure categories so they can be expanded elsewhere, or as a placeholder for a structure that is unknown, but may be deduced from the context of an intersection - can only be used to store structure categories. Variables may be used to create structure category definitions - they must begin with an uppercase letter.
-
-Variables may also be anonymous - this is denoted:
-
-    '['B]
-
-In this example, an anonymous variable that accepts a capture is used.
-
-Variables may be defined with a category called a capture, which makes variable accept a category as an argument - these variables can deduce to any category definition that accepts a capture matching restrictions defined by the variable. Variables with captures may be used to create structure category definitions.
-
-Captures may be used to map categories to other categories, or add/remove
-structure from categories - for example:
-
-    ('['A O 'B], 'B)
-
-In this example, capture extracts value of 'B'.
-
-Variables are also used as placeholders for locations, which may be intersected with in order to send output outside of program and/or store categories locally, and/or read from in order to continuously or non-continuously draw categories into a service from outside of program or to enable one service to read from another service's exports.
-
-#### 1.2 Quantity
-    2
-
-Represents a positive integer.
-
-#### 1.3 Union
-    'A V 'B V 'C
-    'A V,
-
-Defines a category that represents more than one possible structure. Unions define an exclusive-or (XOR) relationship between union members.
-
-Unions may be tagged in order to enable representation of more complex structures
-by using conditions - for example:
-
-((('T)'A V 'B) O (('U: 'T)'C V 'D))
-
-In this example, 'C' may only be active member of its union if 'A' is active member of its union. Tags may also be anonymous in cases where they are not used, like so:
-
-((('T)'A V 'B) O ((': 'T)'C V 'D))
-
-Intersection and union operators may be used in a tag as 'and' and 'or' logical operators respectively - for example:
-
-((('T)'A V 'B) O (('U: 'T)'C V ('V)'D) O (('T V 'V)'E V ('T & 'V)'F))
-
-In this example, 'E' is only active member of its union if either 'A' or 'D' are active members of their unions. 'F' is only active member of its union if both 'A' and 'D' are active members of their unions.
-
-#### 1.4 Sequence
-    'A O 'B O 'C
-    'A O,
-
-Defines an order-sensitive sequence of structures. Used to compose categories
-in order to form a new one.
-
-#### 1.5 Collection
-    'A C 'B C 'C
-    'A C,
-
-Defines an unordered collection of structures. Items in a collection are
-rearranged to fit inside another category when intersected - generates unions
-in cases where two or more possible items may fit in a specific location.
-
-#### 1.3 Sum
-    'A + 'B + 'C
-    2 +,
-
-Used to define a sum category, where each item is concatenated.
-
-#### 1.6 Category
+#### 1.1 Introduction
     Definition:
     ('A['B], 1 O 2 O, 'B, ')
 
@@ -82,7 +12,7 @@ Used to define a sum category, where each item is concatenated.
     Instance (Structure - infinite):
     (1 O 2 O,)
 
-Represents structures in language that may be intersected.
+Represents structures in language that may be intersected - these are called categories.
 
 Categories may be either finitely or infinitely sized - they have
 a variable, body, and optional recursive call field respectively.
@@ -132,3 +62,50 @@ caret (^) symbol - for example:
 
 In this example, category 'A' expands itself in middle of own body, making this category
 into a tree.
+
+#### 1.2 Quantity
+    2
+
+Represents a positive integer.
+
+#### 1.3 Union
+    'A V 'B V 'C
+    'A V,
+
+Defines a category that represents more than one possible structure. Unions define an exclusive-or (XOR) relationship between union members.
+
+Unions may be tagged in order to enable representation of more complex structures
+by using conditions - for example:
+
+((('T)'A V 'B) O (('U: 'T)'C V 'D))
+
+In this example, 'C' may only be active member of its union if 'A' is active member of its union. Tags may also be anonymous in cases where they are not used, like so:
+
+((('T)'A V 'B) O ((': 'T)'C V 'D))
+
+Intersection and union operators may be used in a tag as 'and' and 'or' logical operators respectively - for example:
+
+((('T)'A V 'B) O (('U: 'T)'C V ('V)'D) O (('T V 'V)'E V ('T & 'V)'F))
+
+In this example, 'E' is only active member of its union if either 'A' or 'D' are active members of their unions. 'F' is only active member of its union if both 'A' and 'D' are active members of their unions.
+
+#### 1.4 Sequence
+    'A O 'B O 'C
+    'A O,
+
+Defines an order-sensitive sequence of structures. Used to compose categories
+in order to form a new one.
+
+#### 1.5 Collection
+    'A C 'B C 'C
+    'A C,
+
+Defines an unordered collection of structures. Items in a collection are
+rearranged to fit inside another category when intersected - generates unions
+in cases where two or more possible items may fit in a specific location.
+
+#### 1.6 Sum
+    'A + 'B + 'C
+    2 +,
+
+Used to define a sum category, where each item is concatenated.

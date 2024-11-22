@@ -1,5 +1,9 @@
 ### 1. Abstractions
-#### 1.1 Service
+#### 1.1 Introduction
+Abstractions are objects that add context to an existing object in order to change the
+way it is processed.
+
+#### 1.2 Service
     Definition:
         ('Service, 'Input, ('['CurrentState], 'Output), 'BeginState, 'NextState)
 
@@ -18,7 +22,31 @@ Input requests and export read requests are processed in order they are received
 
 A 'main' location is defined that that contains a delimited sequence of 8-bit sequences (strings) supplied by user on command line - this variable is denoted ('').
 
-#### 1.2 Negation
+#### 1.3 Variable
+    'A
+    'A['B]
+
+Used to give names to structure categories so they can be expanded elsewhere, or as a placeholder for a structure that is unknown, but may be deduced from the context of an intersection - can only be used to store structure categories. Variables may be used to create structure category definitions - they must begin with an uppercase letter.
+
+Variables may also be anonymous - this is denoted:
+
+    '['B]
+
+In this example, an anonymous variable that accepts a capture is used.
+
+Variables may be defined with a category called a capture, which makes variable accept a category as an argument - these variables can deduce to any category definition that accepts a capture matching restrictions defined by the variable. Variables with captures may be used to create structure category definitions.
+
+Captures may be used to map categories to other categories, or add/remove
+structure from categories - for example:
+
+    ('['A O 'B], 'B)
+
+In this example, capture extracts value of 'B'.
+
+Variables are also used as placeholders for locations, which may be intersected with in order to send output outside of program and/or store categories locally, and/or read from in order to continuously or non-continuously draw categories into a service from outside of program or to enable one service to read from another service's exports.
+
+
+#### 1.4 Negation
     ~A
 
 Used to express that a category is not an instance of a specific category in an intersection - for example:

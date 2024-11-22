@@ -32,4 +32,3 @@ Indicates that category or service with specified variable is to be expanded at 
 In this example, first item in category is an anonymous variable.
 
 Service references must be called with a write location - this variable may be intersected with in order to make request to service.
-
