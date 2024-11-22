@@ -23,7 +23,7 @@ Applications can only be used in test contexts - used for assertions in tests.
 #### 1.3 Reference
     A
     A['B]
-    (A['B], 'Input, ('Export,'Export2), ('Import,'Import2))
+    (A['B], 'Input:C, 'Output:D)
 
 Indicates that category or service with specified variable is to be expanded at position - this creates an anonymous version of that category or service in the form of:
 

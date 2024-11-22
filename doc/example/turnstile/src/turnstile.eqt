@@ -1,6 +1,6 @@
 (Turnstile)
 
-(Turnstile, 'Input:('InsertCoin(4) V 'Push(5)), (), ('Output:State))
+(Turnstile, 'Input:('InsertCoin(4) V 'Push(5)), 'Output:State)
 
 'Output -> 'Locked(2)
 
@@ -12,11 +12,11 @@
 
 'Output -> 'Locked(2)
 
-('Input, 'Push(5))
+('Input & 'Push(5))
 
 'Output -> 'Locked(2)
 
-('Input, 'InsertCoin(4))
+('Input & 'InsertCoin(4))
 
 'Output -> 'Unlocked(2)
 

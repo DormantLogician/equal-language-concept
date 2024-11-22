@@ -1,21 +1,16 @@
 ### 1. Abstractions
 #### 1.1 Service
     Definition:
-        ('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D,
-    'Import2:E), 'CurrentState, 'NextState)
+        ('Service, 'Input, ('['CurrentState], 'Output), 'BeginState, 'NextState)
 
     Declaration:
-        ('Service, 'Input:A, ('Export:B->'Default,'Export2:C->'Default2), ('Import:D,
-    'Import2:E))
+        ('Service, 'Input, 'Output)
 
 Acts as a wrapper for current state information, and how that state and input to service affect new state by using tagged unions - used to express concurrency and processing of user requests. Services accept words at a time of a particular category as arguments, and may produce effects outside program, and/or export data to location within program. Services are run for each word they are given.
 
-'NextState' must be a subset of 'CurrentState', and becomes 'CurrentState' in next
-run of service.
+Map to output is either a regular category, or a category with a capture that takes current state as argument - used to yield service output upon request to service.
 
-Exports may reference items in 'NextState' in order to deduce what is exported.
-
-Has export variables for giving information to other services, and import variables for getting information from other services. Export variables must be specified with a default category value if they are being created inline.
+'NextState' must be a subset of capture of 'CurrentState', and becomes 'CurrentState' in next run of service.
 
 Only synchronous writing to, and asynchronous reading from a service is allowed - requests to services are given by intersecting with a write variable (value given to 'Input' in service reference, in this case), which allows a service to accept a category as an input word, processing one word at a time.
 
