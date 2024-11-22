@@ -1,8 +1,8 @@
 ('Hello)
 
-(CommandLine, ('Input), (StdOut), ())
+(CommandLine, 'In:String, StdOut)
 
-('Input & '')
+('' & 'In)
 
 StdOut -> "Hello world!"
 

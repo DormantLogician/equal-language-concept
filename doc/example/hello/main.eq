@@ -1,12 +1,15 @@
 (Hello)
 
-('CommandLine, ('Input:'I), ('Output:((1 V 2) O,), (),
-    'CurrentState,
-    'Output & "Hello world!"
+('Bit, 1 V 2)
+('String, 'Bit(8),)
+
+('CommandLine, 'Input:String, String,
+    <0,
+    "Hello world!"
 )
 
-(CommandLine, ('Input), (StdOut), ())
+(CommandLine, 'In:String, String)
 
-(' & 'Input)
+('' & 'In)
 
 
