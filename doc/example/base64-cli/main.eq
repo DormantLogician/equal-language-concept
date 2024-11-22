@@ -9,13 +9,13 @@
 """
 Encoder/decoder command line application.
 """
-('CommandLine, InputWord, ('[' O ' O InputWord O String], InputWord O String),
+('CommandLine, 'In:InputWord, ('[' O InputWord O String], InputWord O String),
  (InputWord O String),
-  (('In O '' O 'In O String) &
-   (((B64):EncodedWord O "-d" O <0) V
-   ((B64):PlaintextWord O "" O <0) V
-   (~(B64):EncodedWord O "-d" O ("Error - input is not a base64-encoded string.")) V
-   (<0 O (~"" & ~"-d") O ("Error - unknown command given to program.")))))
+  (('' O 'In O String) &
+   (("-d" O (B64):EncodedWord O <0) V
+   ("" O (B64):PlaintextWord O <0) V
+   ("-d" O ~(B64):EncodedWord O ("Error - input is not a base64-encoded string.")) V
+   ((~"" & ~"-d") O <0 O ("Error - unknown command given to program.")))))
 
 """
 Initialize application.
