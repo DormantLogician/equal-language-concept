@@ -2,6 +2,6 @@
 
 Encode[PlaintextWord] -> Unmapped[EncodedWord]
 
-Decode[EncodedWord] -> PlaintextWord
+Decode[Unmapped[EncodedWord]] -> PlaintextWord
 
 

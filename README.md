@@ -25,7 +25,7 @@ Category definitions:
 
     ('Quantity, 1 O,)
     ('Gte['A:Quantity], 'A V ('A + Quantity))
-    ('Rule['A[Quantity]:Quantity], ('['C:Quantity]['], 'T:'A['C] O, 'T))
+    ('Rule['A[Quantity]:Quantity], ('['B:Quantity]['], 'T:'A['B] O, 'T))
 
 Intersection is the following:
 

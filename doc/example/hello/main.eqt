@@ -2,7 +2,7 @@
 
 (CommandLine, 'In:String, StdOut)
 
-('' & 'In)
+'' & 'In
 
 StdOut -> "Hello world!"
 
