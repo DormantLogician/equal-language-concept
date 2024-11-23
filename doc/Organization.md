@@ -27,7 +27,7 @@
     (A:B):C
 
     Service variable reference bound by module alias:
-    (A:B):(C['D], 'Input, ('Export,'Export2), ('Import,'Import2))
+    (A:B):(C['D], 'Input:E, 'Output:F)
 
 Used to organize code into sections.
 

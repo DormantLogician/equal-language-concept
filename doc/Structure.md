@@ -15,7 +15,7 @@
 Represents structures in language that may be intersected - these are called categories.
 
 Categories may be either finitely or infinitely sized - they have
-a variable, body, and optional recursive call field respectively.
+a variable, body, optional recursive call, and optional multiplier field respectively.
 
 Categories may be either category definitions, or inline categories - category definitions have a non-anonymous variable attached to them like so:
 
@@ -31,10 +31,9 @@ accept a capture, like so:
 In this example, category is immediately expanded with '2' as initial argument to
 capture, which generates a pattern.
 
-Categories may be sum (denoted '+'), product (denoted '*'), union (denoted 'V'),
-sequence (denoted 'O'), or collection (denoted 'C') categories.
+Categories may be sum (denoted '+'), union (denoted 'V'), sequence (denoted 'O'), or collection (denoted 'C') categories.
 
-Any infinitely-sized category may have a fourth item that denotes expansion of category to n'th structure in pattern.
+Any infinitely-sized category may have a multiplier that denotes expansion of category to n'th structure in pattern.
 
 Category definitions may be overloaded, like so:
 
@@ -94,7 +93,7 @@ In this example, 'E' is only active member of its union if either 'A' or 'D' are
     'A O,
 
 Defines an order-sensitive sequence of structures. Used to compose categories
-in order to form a new one.
+to form a new one.
 
 #### 1.5 Collection
     'A C 'B C 'C
