@@ -5,10 +5,10 @@ way it is processed.
 
 #### 1.2 Service
     Definition:
-        ('Service, 'Input, ('['CurrentState], 'Output), 'BeginState, 'NextState)
+        ('Service, 'Input:A, ('['CurrentState], 'Output), 'BeginState, 'NextState)
 
     Declaration:
-        ('Service, 'Input, 'Output)
+        ('Service, 'Input:A, 'Output)
 
 Acts as a wrapper for current state information, and how that state and input to service affect new state by using tagged unions - used to express concurrency and processing of user requests. Services accept words at a time of a particular category as arguments, and may produce effects outside program, and/or export data to location within program. Services are run for each word they are given.
 
