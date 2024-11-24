@@ -79,17 +79,3 @@ Defines a category that represents more than one possible structure. Unions defi
 
 Defines an order-sensitive sequence of structures. Used to compose categories
 to form a new one.
-
-#### 1.5 Collection
-    'A C 'B C 'C
-    'A C,
-
-Defines an unordered collection of structures. Items in a collection are
-rearranged to fit inside another category when intersected - generates unions
-in cases where two or more possible items may fit in a specific location.
-
-#### 1.6 Sum
-    'A + 'B + 'C
-    2 +,
-
-Used to define a sum category, where each item is concatenated.

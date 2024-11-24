@@ -1,6 +1,6 @@
 ### 1. Operations
 #### 1.1 Intersection
-    'First & 'Second
+    'First & 'Second & 'Third
 
 Used to pose questions about what certain structures are.
 
@@ -13,17 +13,22 @@ Generates a single category that contains only structures all members of interse
 
 An unevaluated intersection may be created in cases where an intersection cannot be proven to halt. Unevaluated contexts can be narrowed by intersecting with other categories, which can make them able to be evaluated.
 
-### 1.2 Application
+#### 1.2 Sum
+    'A + 'B + 'C
+
+Concatenates categories.
+
+### 1.3 Application
     'A -> 'B
 
 If left-hand side of application is an instance of right-hand side, evaluates to left-hand side, otherwise raises a contradiction.
 
 Applications can only be used in test contexts - used for assertions in tests.
 
-#### 1.3 Reference
+#### 1.4 Reference
     A
     A['B]
-    (A['B], 'Input:C, 'Output:D)
+    (A['B], 'Write:C, 'Read:D)
 
 Indicates that category or service with specified variable is to be expanded at position - this creates an anonymous version of that category or service in the form of:
 

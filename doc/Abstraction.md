@@ -45,7 +45,13 @@ In this example, capture extracts value of 'B'.
 
 Variables are also used as placeholders for locations, which may be intersected with in order to send output outside of program and/or store categories locally, and/or read from in order to continuously or non-continuously draw categories into a service from outside of program or to enable one service to read from another service's exports.
 
-#### 1.4 Negation
+#### 1.4 Collection
+    'A C 'B C 'C
+    'A C,
+
+Represents an unordered collection of structures - generates a union upon intersection.
+
+#### 1.5 Negation
     ~A
 
 Used to express that a category is not an instance of a specific category in an intersection - for example:
