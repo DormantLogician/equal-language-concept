@@ -69,7 +69,6 @@ Represents a positive integer.
 
 #### 1.3 Union
     'A V 'B V 'C
-    'A V,
 
 Defines a category that represents more than one possible structure. Unions define an exclusive-or (XOR) relationship between union members.
 
