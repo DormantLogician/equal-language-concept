@@ -16,7 +16,7 @@ An unevaluated intersection may be created in cases where an intersection cannot
 #### 1.2 Sum
     'A + 'B + 'C
 
-Concatenates categories.
+Concatenates categories, or defines a sum category, where each item in chain is concatenated with next item.
 
 ### 1.3 Application
     'A -> 'B
