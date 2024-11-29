@@ -13,19 +13,14 @@ Generates a single category that contains only structures all members of interse
 
 An unevaluated intersection may be created in cases where an intersection cannot be proven to halt. Unevaluated contexts can be narrowed by intersecting with other categories, which can make them able to be evaluated.
 
-#### 1.2 Sum
-    'A + 'B + 'C
-
-Concatenates categories, or defines a sum category, where each item in chain is concatenated with next item.
-
-### 1.3 Application
+### 1.2 Application
     'A -> 'B
 
 If left-hand side of application is an instance of right-hand side, evaluates to left-hand side, otherwise raises a contradiction.
 
 Applications can only be used in test contexts - used for assertions in tests.
 
-#### 1.4 Reference
+#### 1.3 Reference
     A
     A['B]
     (A['B], 'Write:C, 'Read:D)

@@ -78,3 +78,9 @@ Defines a category that represents more than one possible structure. Unions defi
 
 Defines an order-sensitive sequence of structures. Used to compose categories
 to form a new one.
+
+#### 1.5 Sum
+    'A + 'B + 'C
+    'A +,
+
+Concatenates categories, or defines a sum category where each item in chain is concatenated with next item.
