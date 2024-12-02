@@ -84,3 +84,9 @@ to form a new one.
     'A +,
 
 Concatenates categories, or defines a sum category where each item in chain is concatenated with next item.
+
+#### 1.6 Product
+    'A * 'B * 'C
+    'A *,
+
+Multiplies quantities and/or quantity categories, or defines a product category.
