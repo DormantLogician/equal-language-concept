@@ -11,6 +11,10 @@ It is error-resistant both because we specify what something is, rather than how
 
 Also, it is expressive to the point where it can be used to do many things other languages can do - it allows posing questions about what certain structures are, given incomplete information by using deduction. Not only can we get output of an operation from its inputs, we can also deduce what an input is given an output.
 
+The language is designed to act as a bridge between mathematics and programming - it makes use of mechanics the equal sign '=' has in mathematics that are related to deduction of unknown structures.
+
+Equal has strong solving abilities - it allows answering questions about whether specific system states are reachable from an initial state, allowing for more rigorous testing.
+
 ### 1.3 Intersection as computation method
 A basic program in written in language is expressed:
 
